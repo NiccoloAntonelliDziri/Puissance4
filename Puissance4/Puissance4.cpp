@@ -1,6 +1,6 @@
 #include "Puissance4.h"
 
-void puissance4::faireJouer2BotsEntreEux(grilleDeJeu::Plateau& jeu, bots::Bot& botR, bots::Bot& botY)
+void puissance4::faireJouer2BotsEntreEux(grilleDeJeu::Plateau& jeu, bots::Bot& botR, bots::Bot& botY, bool affEndGame)
 {
 	while (jeu.getNbMoves() != jeu.getTaille()) {
 		bots::Bot& bot = jeu.getNbMoves() % 2 == 1 ? botR : botY;
@@ -27,5 +27,9 @@ void puissance4::faireJouer2BotsEntreEux(grilleDeJeu::Plateau& jeu, bots::Bot& b
 		{
 			std::cout << "La colonne " << col << " n'est pas valide" << std::endl;
 		}
+	}
+	if (affEndGame)
+	{
+		puissance4::affichageConsole::all(jeu);
 	}
 }
