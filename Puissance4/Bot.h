@@ -10,9 +10,9 @@ namespace puissance4 {
 
 		class Bot {
 		public:
-			Bot(std::string nomBot) : nomBot(nomBot){}
+			Bot(const std::string nomBot) : nomBot(nomBot){}
 
-			~Bot() = default;
+			virtual ~Bot() = default;
 
 			virtual int genMove(const grilleDeJeu::Plateau& jeu) = 0;
 
