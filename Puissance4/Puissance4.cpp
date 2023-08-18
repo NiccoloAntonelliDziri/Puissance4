@@ -10,11 +10,13 @@ void puissance4::faireJouer2BotsEntreEux(grilleDeJeu::Plateau& jeu, bots::Bot& b
 			if (jeu.getNbMoves() + 1 == jeu.getTaille()) { // Egalité
 				jeu.ajouteCell(col);
 				std::cout << "Egalite" << std::endl;
+				break;
 			}
 			else if (jeu.isWinningMove(col)) // Victoire d'un des joueurs
 			{
 				jeu.ajouteCell(col);
 				std::cout << "Victoire " << (jeu.getNbMoves() % 2 == 0 ? "Jaune" : "Rouge") << std::endl;
+				break;
 			}
 			else
 			{

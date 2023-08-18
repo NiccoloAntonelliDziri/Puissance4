@@ -12,11 +12,11 @@ bool puissance4::grilleDeJeu::Plateau::isWinningMove(int col) const
 	auto current_cell = (Cell)(nbMoves % 2);
 
 	// Vertical
-	if (colonnes[col] >= PUISSANCE - 1) {
+	if (colonnes[col] + 1 >= PUISSANCE) {
 		int i;
 		for (i = 1; i < PUISSANCE; i++)
 		{
-			if (plateau[col - i] != current_cell) break;
+			if (plateau[col * HAUTEUR + colonnes[col] - i] != current_cell) break;
 		}
 		if (i == PUISSANCE) return true;
 	}
