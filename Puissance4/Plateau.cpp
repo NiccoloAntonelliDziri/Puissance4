@@ -1,7 +1,5 @@
 #include "Plateau.h"
 
-
-
 void puissance4::grilleDeJeu::Plateau::ajouteCell(int col)
 {
 	plateau[colonnes[col] + col * HAUTEUR] = (Cell)(nbMoves % 2);
@@ -11,7 +9,7 @@ void puissance4::grilleDeJeu::Plateau::ajouteCell(int col)
 
 bool puissance4::grilleDeJeu::Plateau::isWinningMove(int col) const
 {
-	Cell current_cell = (Cell)(nbMoves % 2);
+	auto current_cell = (Cell)(nbMoves % 2);
 
 	// Vertical
 	if (colonnes[col] >= PUISSANCE - 1) {

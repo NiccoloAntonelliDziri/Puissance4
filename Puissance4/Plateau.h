@@ -28,8 +28,9 @@ namespace puissance4 {
 			int* colonnes; // Tableau avec le nombre de jetons dans chaque colonne du plateau
 			Cell* plateau; // Grille de jeu
 		public:
-			Plateau(int largeur = 7, int hauteur = 6, int puissance = 4) : LARGEUR(largeur), HAUTEUR(hauteur), PUISSANCE(puissance) {
-				nbMoves = 0;
+			Plateau(int largeur = 7, int hauteur = 6, int puissance = 4) :
+				LARGEUR(largeur), HAUTEUR(hauteur), PUISSANCE(puissance),
+				nbMoves(0){
 				colonnes = new int[LARGEUR];
 				plateau = new Cell[LARGEUR * HAUTEUR];
 
@@ -37,6 +38,21 @@ namespace puissance4 {
 				for (int i = 0; i < largeur * hauteur; i++) plateau[i] = Cell::VIDE;
 				for (int i = 0; i < largeur; i++) colonnes[i] = 0;
 			}
+
+			// Constructeur de copie
+			Plateau(const Plateau& jeu) : LARGEUR(jeu.getLargeur()), HAUTEUR(jeu.getHauteur()), PUISSANCE(jeu.getPuissance()),
+				nbMoves(jeu.getNbMoves()) {
+
+				colonnes = new int[LARGEUR];
+				plateau = new Cell[LARGEUR * HAUTEUR];
+				
+				// Copie du plateau
+				for (int i = 0; i < LARGEUR * HAUTEUR; i++) { plateau[i] = jeu.getCell(i); }
+
+				// Copie de colonnes
+				for (int i = 0; i < LARGEUR; i++) { colonnes[i] = jeu.getNbJetonsParCol(i); }
+			}
+			
 
 			~Plateau() {
 				delete[] colonnes;
@@ -60,7 +76,9 @@ namespace puissance4 {
 			inline int getPuissance() const { return PUISSANCE; }
 			inline int getNbMoves() const { return nbMoves; }
 
+			inline int getNbJetonsParCol(int col) const { return colonnes[col]; }
 			inline Cell getCell(int cellule) const { return plateau[cellule]; }
+
 		};
 	} // namespace
 } // namespace
