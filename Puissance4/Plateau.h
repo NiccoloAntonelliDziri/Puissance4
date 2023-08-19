@@ -1,5 +1,6 @@
 #pragma once
 
+// Représente le contenu d'une cellule du plateau
 enum class Cell { ROUGE, JAUNE, VIDE };
 
 namespace puissance4 {
@@ -16,11 +17,13 @@ namespace puissance4 {
 		*	1  7  13 19 25 31 37
 		*	0  6  12 18 24 30 36
 		*
-		*
 		*/
 		class Plateau {
 		private:
-			int LARGEUR, HAUTEUR; // Dimensions grille
+			// Dimensions du plateau:
+			int LARGEUR; // Largeur du plateau de jeu
+			int HAUTEUR; // Hauteur du plateau de jeu
+
 			int PUISSANCE; // Nombre de jetons qu'il faut aligner pour gagner una partie
 
 			int nbMoves; // Nombre de coups joués depuis le début de la partie

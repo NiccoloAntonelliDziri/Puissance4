@@ -32,14 +32,13 @@ namespace puissance4 {
 		class Random : public Bot {
 		public:
 			Random() = default;
-
 		};
 
 		class Uniform : public Random {
 		public:
 			Uniform() = default;
 
-			//
+			// Retourne une colonne valide aléatoire selon une disttibution uniforme
 			int genMove(const grilleDeJeu::Plateau& jeu) override;
 
 		protected:
