@@ -1,5 +1,7 @@
 #pragma once
 
+#include <algorithm>
+
 // Représente le contenu d'une cellule du plateau
 enum class Cell { ROUGE, JAUNE, VIDE };
 
@@ -26,14 +28,14 @@ namespace puissance4 {
 
 			int PUISSANCE; // Nombre de jetons qu'il faut aligner pour gagner una partie
 
-			int nbMoves; // Nombre de coups joués depuis le début de la partie
+			int nbMoves = 0; // Nombre de coups joués depuis le début de la partie
 
 			int* colonnes; // Tableau avec le nombre de jetons dans chaque colonne du plateau
 			Cell* plateau; // Grille de jeu
 		public:
 			Plateau(int largeur = 7, int hauteur = 6, int puissance = 4) :
-				LARGEUR(largeur), HAUTEUR(hauteur), PUISSANCE(puissance),
-				nbMoves(0){
+				LARGEUR(largeur), HAUTEUR(hauteur), PUISSANCE(puissance)
+				{
 				colonnes = new int[LARGEUR];
 				plateau = new Cell[LARGEUR * HAUTEUR];
 
@@ -43,19 +45,79 @@ namespace puissance4 {
 			}
 
 			// Constructeur de copie
-			Plateau(const Plateau& jeu) : LARGEUR(jeu.getLargeur()), HAUTEUR(jeu.getHauteur()), PUISSANCE(jeu.getPuissance()),
-				nbMoves(jeu.getNbMoves()) {
+			Plateau(const Plateau& other) :
+				LARGEUR(other.LARGEUR), HAUTEUR(other.HAUTEUR), PUISSANCE(other.PUISSANCE),
+				nbMoves(other.nbMoves) {
 
 				colonnes = new int[LARGEUR];
 				plateau = new Cell[LARGEUR * HAUTEUR];
 				
-				// Copie du plateau
-				for (int i = 0; i < LARGEUR * HAUTEUR; i++) { plateau[i] = jeu.getCell(i); }
-
-				// Copie de colonnes
-				for (int i = 0; i < LARGEUR; i++) { colonnes[i] = jeu.getNbJetonsParCol(i); }
+				std::copy(other.colonnes, other.colonnes + LARGEUR, colonnes);
+				std::copy(other.plateau, other.plateau + (LARGEUR * HAUTEUR), plateau);
 			}
 			
+			// Copy assignement operator
+			Plateau& operator=(const Plateau& other) {
+				if (&other != this) {
+					delete[] colonnes;
+					delete[] plateau;
+					colonnes = nullptr;
+					plateau = nullptr;
+
+					LARGEUR = other.LARGEUR;
+					HAUTEUR = other.HAUTEUR;
+					PUISSANCE = other.PUISSANCE;
+					nbMoves = other.nbMoves;
+
+					colonnes = new int[LARGEUR];
+					plateau = new Cell[LARGEUR * HAUTEUR];
+
+					std::copy(other.colonnes, other.colonnes + LARGEUR, colonnes);
+					std::copy(other.plateau, other.plateau + (LARGEUR * HAUTEUR), plateau);
+				}
+				return *this;
+			}
+
+			// move constructor
+			Plateau(Plateau&& other) noexcept :
+				LARGEUR(7), HAUTEUR(6), PUISSANCE(4),
+				nbMoves(0),
+				colonnes(nullptr), plateau(nullptr){
+
+				colonnes = other.colonnes;
+				plateau = other.plateau;
+
+				LARGEUR = other.LARGEUR;
+				HAUTEUR = other.HAUTEUR;
+				PUISSANCE = other.PUISSANCE;
+				nbMoves = other.nbMoves;
+
+				other.colonnes = nullptr;
+				other.plateau = nullptr;
+				other.nbMoves = 0;
+			}
+
+			// Move assignement operator
+			Plateau const& operator=(Plateau&& other) noexcept{
+				if (this != &other)
+				{
+					delete[] colonnes;
+					delete[] plateau;
+
+					colonnes = other.colonnes;
+					plateau = other.plateau;
+
+					LARGEUR = other.LARGEUR;
+					HAUTEUR = other.HAUTEUR;
+					PUISSANCE = other.PUISSANCE;
+					nbMoves = other.nbMoves;
+
+					other.colonnes = nullptr;
+					other.plateau = nullptr;
+					other.nbMoves = 0;
+				}
+				return *this;
+			}
 
 			~Plateau() {
 				delete[] colonnes;
