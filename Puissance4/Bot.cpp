@@ -4,6 +4,7 @@ using namespace std;
 
 int puissance4::bots::Player::genMove(const grilleDeJeu::Plateau& jeu)
 {
+    affichageConsole::all(jeu);
     int col = -1;
     do
     {

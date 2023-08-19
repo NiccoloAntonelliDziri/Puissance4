@@ -3,18 +3,20 @@
 void puissance4::faireJouer2BotsEntreEux(grilleDeJeu::Plateau& jeu, bots::Bot& botR, bots::Bot& botY, bool affEndGame)
 {
 	while (jeu.getNbMoves() != jeu.getTaille()) {
-		bots::Bot& bot = jeu.getNbMoves() % 2 == 1 ? botR : botY;
+		bots::Bot& bot = jeu.getNbMoves() % 2 == 0 ? botR : botY;
 		int col = bot.genMove(jeu);
 		if (jeu.isColValide(col))
 		{
 			if (jeu.getNbMoves() + 1 == jeu.getTaille()) { // Egalité
 				jeu.ajouteCell(col);
+				std::cout << std::endl;
 				std::cout << "Egalite" << std::endl;
 				break;
 			}
 			else if (jeu.isWinningMove(col)) // Victoire d'un des joueurs
 			{
 				jeu.ajouteCell(col);
+				std::cout << std::endl;
 				std::cout << "Victoire " << (jeu.getNbMoves() % 2 == 0 ? "Jaune" : "Rouge") << std::endl;
 				break;
 			}
