@@ -44,7 +44,7 @@ namespace puissance4 {
 				for (int i = 0; i < largeur; i++) colonnes[i] = 0;
 			}
 
-			// Constructeur de copie
+			//// Constructeur de copie
 			Plateau(const Plateau& other) :
 				LARGEUR(other.LARGEUR), HAUTEUR(other.HAUTEUR), PUISSANCE(other.PUISSANCE),
 				nbMoves(other.nbMoves) {

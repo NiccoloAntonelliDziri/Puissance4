@@ -25,6 +25,7 @@ namespace puissance4 {
 			Player() = default;
 
 			// Demande au joueur d'entrer le coup qu'il veut jouer
+			// NE PAS entrer autre chose qu'un entier dans la console
 			int genMove(const grilleDeJeu::Plateau& jeu) override;
 		};
 

@@ -10,7 +10,7 @@ void puissance4::faireJouer2BotsEntreEux(grilleDeJeu::Plateau& jeu, bots::Bot& b
 			if (jeu.getNbMoves() + 1 == jeu.getTaille()) { // Egalité
 				jeu.ajouteCell(col);
 				std::cout << std::endl;
-				if (affEndGame) puissance4::affichageConsole::all(jeu);
+				ifAffEndGame(affEndGame, jeu);
 				std::cout << "Egalite" << std::endl;
 				break;
 			}
@@ -18,7 +18,7 @@ void puissance4::faireJouer2BotsEntreEux(grilleDeJeu::Plateau& jeu, bots::Bot& b
 			{
 				jeu.ajouteCell(col);
 				std::cout << std::endl;
-				if (affEndGame) puissance4::affichageConsole::all(jeu);
+				ifAffEndGame(affEndGame, jeu);
 				std::cout << "Victoire " << (jeu.getNbMoves() % 2 == 0 ? "Jaune" : "Rouge") << std::endl;
 				break;
 			}
@@ -32,4 +32,9 @@ void puissance4::faireJouer2BotsEntreEux(grilleDeJeu::Plateau& jeu, bots::Bot& b
 			std::cout << "La colonne " << col << " n'est pas valide" << std::endl;
 		}
 	}
+}
+
+void puissance4::ifAffEndGame(bool affEndGame, const grilleDeJeu::Plateau& jeu)
+{
+	if (affEndGame) puissance4::affichageConsole::all(jeu);
 }

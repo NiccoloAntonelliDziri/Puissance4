@@ -6,15 +6,8 @@ int puissance4::bots::Player::genMove(const grilleDeJeu::Plateau& jeu)
 {
     affichageConsole::all(jeu);
     int col = -1;
-    do
-    {
-        cout << "Entrer num colonne: ";
-        cin >> col;
-        if (!jeu.isColValide(col))
-            cout << "La colonne " << col << " n'est pas valide";
-
-    } while (!jeu.isColValide(col));
-
+    cout << "Entrer num colonne: ";
+    cin >> col;
     return col;
 }
 

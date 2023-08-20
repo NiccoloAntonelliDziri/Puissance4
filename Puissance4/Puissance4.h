@@ -13,4 +13,8 @@ namespace puissance4 {
 	// Ajoute le jeton sur la colonne générée à jeu
 	// Affiche la grille de jeu à chaque fin de partie par défaut, pour désactiver mettre affEndGame à false
 	void faireJouer2BotsEntreEux(grilleDeJeu::Plateau& jeu, bots::Bot& botR, bots::Bot& botY, bool affEndGame = true);
+
+	// Affiche toute la grille de jeu si affendgame est true
+	// Utilisé dans faireJouer2BotsEntreEux
+	void ifAffEndGame(bool affEndGame, const grilleDeJeu::Plateau& jeu);
 }
