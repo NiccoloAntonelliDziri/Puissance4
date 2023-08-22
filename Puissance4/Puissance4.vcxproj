@@ -142,6 +142,7 @@
     <ClCompile Include="Affichage.cpp" />
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="Bot.cpp" />
+    <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Puissance4.cpp" />
     <ClCompile Include="Plateau.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="Affichage.h" />
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="Bot.h" />
+    <ClInclude Include="InputManager.h" />
     <ClInclude Include="Puissance4.h" />
     <ClInclude Include="Plateau.h" />
     <ClInclude Include="State.h" />
