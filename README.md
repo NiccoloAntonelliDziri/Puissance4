@@ -20,4 +20,4 @@ int main()
 }
 ```
 
-Pour 2 joueurs humain il suffit de déclarer un seul `bots::Player joueur;` et le passer dans les deux paramètres de la fonction `faireJouer2BotsEntreEux(jeu, joueur, joueur);`
+Pour 2 joueurs humain il suffit de déclarer un seul `Player joueur;` et le passer dans les deux paramètres de la fonction `faireJouer2BotsEntreEux(jeu, joueur, joueur);`
