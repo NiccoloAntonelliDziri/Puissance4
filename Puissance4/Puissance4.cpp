@@ -1,9 +1,9 @@
 #include "Puissance4.h"
 
-void puissance4::faireJouer2BotsEntreEux(grilleDeJeu::Plateau& jeu, bots::Bot& botR, bots::Bot& botY, bool affEndGame)
+void Puissance4Modulable::faireJouer2BotsEntreEux(Plateau& jeu, Bot& botR, Bot& botY, bool affEndGame)
 {
 	while (jeu.getNbMoves() != jeu.getTaille()) {
-		bots::Bot& bot = jeu.getNbMoves() % 2 == 0 ? botR : botY;
+		Bot& bot = jeu.getNbMoves() % 2 == 0 ? botR : botY;
 		int col = bot.genMove(jeu);
 		if (jeu.isColValide(col))
 		{
@@ -34,7 +34,7 @@ void puissance4::faireJouer2BotsEntreEux(grilleDeJeu::Plateau& jeu, bots::Bot& b
 	}
 }
 
-void puissance4::ifAffEndGame(bool affEndGame, const grilleDeJeu::Plateau& jeu)
+void Puissance4Modulable::ifAffEndGame(bool affEndGame, const Plateau& jeu)
 {
-	if (affEndGame) puissance4::affichageConsole::all(jeu);
+	if (affEndGame) Puissance4Modulable::affAll(jeu);
 }

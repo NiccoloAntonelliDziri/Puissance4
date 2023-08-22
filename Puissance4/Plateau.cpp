@@ -1,13 +1,13 @@
 #include "Plateau.h"
 
-void puissance4::grilleDeJeu::Plateau::ajouteCell(int col)
+void Puissance4Modulable::Plateau::ajouteCell(int col)
 {
 	plateau[colonnes[col] + col * HAUTEUR] = (Cell)(nbMoves % 2);
 	colonnes[col]++;
 	nbMoves++;
 }
 
-bool puissance4::grilleDeJeu::Plateau::isWinningMove(int col) const
+bool Puissance4Modulable::Plateau::isWinningMove(int col) const
 {
 	auto current_cell = (Cell)(nbMoves % 2);
 

@@ -2,16 +2,16 @@
 
 using namespace std;
 
-int puissance4::bots::Player::genMove(const grilleDeJeu::Plateau& jeu)
+int Puissance4Modulable::Player::genMove(const Plateau& jeu)
 {
-    affichageConsole::all(jeu);
+    affAll(jeu);
     int col = -1;
     cout << "Entrer num colonne: ";
     cin >> col;
     return col;
 }
 
-int puissance4::bots::Uniform::genMove(const grilleDeJeu::Plateau& jeu)
+int Puissance4Modulable::Uniform::genMove(const Plateau& jeu)
 {
     random_device rd;
     default_random_engine eng(rd());
@@ -23,7 +23,7 @@ int puissance4::bots::Uniform::genMove(const grilleDeJeu::Plateau& jeu)
     return tab[distrib(eng)];
 }
 
-std::vector<int> puissance4::bots::Uniform::creerTabCoupsPossibles(const grilleDeJeu::Plateau& jeu) const
+std::vector<int> Puissance4Modulable::Uniform::creerTabCoupsPossibles(const Plateau& jeu) const
 {
     std::vector<int> tab;
     for (int i = 0; i < jeu.getLargeur(); i++)

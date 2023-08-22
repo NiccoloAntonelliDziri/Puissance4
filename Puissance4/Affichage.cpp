@@ -1,6 +1,6 @@
 #include "Affichage.h"
 
-void puissance4::affichageConsole::numerosColonnes(const grilleDeJeu::Plateau& jeu)
+void Puissance4Modulable::numerosColonnes(const Plateau& jeu)
 {
 	for (int i = 0; i < jeu.getLargeur(); i++)
 	{
@@ -9,7 +9,7 @@ void puissance4::affichageConsole::numerosColonnes(const grilleDeJeu::Plateau& j
 	std::cout << std::endl;
 }
 
-void puissance4::affichageConsole::plateau(const grilleDeJeu::Plateau& jeu)
+void Puissance4Modulable::plateau(const Plateau& jeu)
 {
 	using namespace std;
 	for (int i = jeu.getHauteur() - 1; i >= 0 ; i--)
@@ -36,12 +36,12 @@ void puissance4::affichageConsole::plateau(const grilleDeJeu::Plateau& jeu)
 	}
 }
 
-void puissance4::affichageConsole::joueurQuiDoitJouer(const grilleDeJeu::Plateau& jeu)
+void Puissance4Modulable::joueurQuiDoitJouer(const Plateau& jeu)
 {
 	std::cout << "Joueur: " << (jeu.getNbMoves() % 2 == 0 ? "Rouge" : "Jaune") << std::endl;
 }
 
-void puissance4::affichageConsole::all(const grilleDeJeu::Plateau& jeu)
+void Puissance4Modulable::affAll(const Plateau& jeu)
 {
 	numerosColonnes(jeu);
 	plateau(jeu);
