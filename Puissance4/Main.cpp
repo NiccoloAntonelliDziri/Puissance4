@@ -7,4 +7,5 @@ int main()
 	Player joueur;
 	Uniform bot;
 	faireJouer2BotsEntreEux(jeu, joueur, bot);
+	return 0;
 }
