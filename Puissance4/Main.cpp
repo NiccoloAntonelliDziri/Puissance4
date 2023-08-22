@@ -1,11 +1,8 @@
-#include "Puissance4.h"
+#include <iostream>
+#include <SFML/Graphics.hpp>
 
 int main()
 {
-	using namespace Puissance4Modulable;
-	Plateau jeu(7,6,4);
-	Player joueur;
-	Uniform bot;
-	faireJouer2BotsEntreEux(jeu, joueur, bot);
-	return 0;
+
+    return EXIT_SUCCESS;
 }
