@@ -12,10 +12,10 @@ Déclarer un plusieurs bots (qui incluent les joueurs humains).
 ```c++
 int main()
 {
-	using namespace puissance4;
-	grilleDeJeu::Plateau jeu(7,6,4);
-	bots::Player joueur;
-	bots::Uniform bot;
+	using namespace Puissance4Modulable;
+	Plateau jeu(7,6,4);
+	Player joueur;
+	Uniform bot;
 	faireJouer2BotsEntreEux(jeu, joueur, bot);
 }
 ```
