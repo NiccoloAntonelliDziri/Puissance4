@@ -16,7 +16,7 @@ namespace Puissance4Modulable {
 
 		~StateMachine() {}
 
-		void AddState(StateRef newState, bool isReplacing);
+		void AddState(StateRef newState, bool isReplacing = true);
 		void RemoveState();
 
 		// Debut de chaque boucle
