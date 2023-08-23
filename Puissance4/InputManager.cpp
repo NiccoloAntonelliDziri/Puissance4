@@ -2,7 +2,7 @@
 
 namespace Puissance4Modulable
 {
-	bool InputManager::IsSpriteClicked(sf::Sprite object, sf::Mouse::Button button, sf::RenderWindow& window)
+	bool InputManager::IsSpriteClicked(sf::Sprite object, sf::Mouse::Button button, sf::RenderWindow& window) const
 	{
 		if (sf::Mouse::isButtonPressed(button))
 		{
@@ -17,7 +17,7 @@ namespace Puissance4Modulable
 		return false;
 	}
 
-	sf::Vector2i InputManager::GetMousePosition(sf::RenderWindow& window)
+	sf::Vector2i InputManager::GetMousePosition(sf::RenderWindow& window) const
 	{
 		return sf::Mouse::getPosition(window);
 	}

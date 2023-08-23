@@ -6,15 +6,23 @@
 
 namespace Puissance4Modulable {
 
+	// State du splash screen
 	class SplashState : public State
 	{
 	public:
-		SplashState(GameDataRef data);
+		explicit SplashState(GameDataRef data);
 
-		void Init();
+		// Initialise le splash screen
+		// Charge la texture et crée le sprite _background
+		void Init() override;
 
+		// Gère les events relatifs au splash screen
 		void HandleInput();
+
+		// Switch to main menu
 		void Update(float dt);
+
+		// Dessine la fênetre splash screen
 		void Draw(float dt);
 
 	private:

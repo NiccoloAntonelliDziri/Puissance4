@@ -17,7 +17,7 @@ namespace Puissance4Modulable
 		InputManager input;
 	};
 
-	typedef std::shared_ptr<GameData> GameDataRef;
+	using GameDataRef = std::shared_ptr<GameData>;
 
 	class Game
 	{

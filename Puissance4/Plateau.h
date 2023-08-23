@@ -78,17 +78,9 @@ namespace Puissance4Modulable {
 
 		// move constructor
 		Plateau(Plateau&& other) noexcept :
-			LARGEUR(7), HAUTEUR(6), PUISSANCE(4),
-			nbMoves(0),
-			colonnes(nullptr), plateau(nullptr){
-
-			colonnes = other.colonnes;
-			plateau = other.plateau;
-
-			LARGEUR = other.LARGEUR;
-			HAUTEUR = other.HAUTEUR;
-			PUISSANCE = other.PUISSANCE;
-			nbMoves = other.nbMoves;
+			LARGEUR(other.LARGEUR), HAUTEUR(other.HAUTEUR), PUISSANCE(other.PUISSANCE),
+			nbMoves(other.nbMoves),
+			colonnes(other.colonnes), plateau(other.plateau){
 
 			other.colonnes = nullptr;
 			other.plateau = nullptr;
@@ -96,7 +88,7 @@ namespace Puissance4Modulable {
 		}
 
 		// Move assignement operator
-		Plateau const& operator=(Plateau&& other) noexcept{
+		Plateau& operator=(Plateau&& other) noexcept{
 			if (this != &other)
 			{
 				delete[] colonnes;

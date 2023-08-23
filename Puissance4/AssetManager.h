@@ -6,20 +6,34 @@
 
 namespace Puissance4Modulable
 {
+	// Classe qui gère les différentes ressources
+	// Sauvegardés dans une std::map
+	// Permet de load et d'accéder à la réfénce d'une texture déja existante
+	// Assets gérés: Textures, Fonts
 	class AssetManager
 	{
 	public:
-		AssetManager() {}
-		~AssetManager() {}
+		AssetManager() = default;
+		~AssetManager() = default;
 
+		// Charge une texture et la sauvegarde dans la map _textures
+		// Prend le nom de la texture et le nom+path du fichier en arguments
 		void LoadTexture(std::string name, std::string fileName);
+
+		// Retourne une référence vers la texture
 		sf::Texture& GetTexture(std::string name);
 
+		// Charge une font et la sauvegarde dans la map _fonts
+		// Prend le nom de la font et le nom+path du fichier en arguments
 		void LoadFont(std::string name, std::string fileName);
+
+		// Retourne une référence vers la font
 		sf::Font& GetFont(std::string name);
 
 	private:
+		// Prend le nom de la texture et y assigne la texture
 		std::map<std::string, sf::Texture> _textures;
+		// Prend le nom de la police d'écriture et y assigne la font
 		std::map<std::string, sf::Font> _fonts;
 
 	};

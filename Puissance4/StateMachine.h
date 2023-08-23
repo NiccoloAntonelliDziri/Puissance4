@@ -7,26 +7,32 @@
 
 namespace Puissance4Modulable {
 
-	typedef std::unique_ptr<State> StateRef;
+	using StateRef = std::unique_ptr<State>;
 
+	// Permet de gérer les différents états
 	class StateMachine
 	{
 	public:
-		StateMachine() {}
+		StateMachine() = default;
 
-		~StateMachine() {}
+		~StateMachine() = default;
 
+		// Ajoute un nouvel état
 		void AddState(StateRef newState, bool isReplacing = true);
+
+		// Enlève l'état actuel
 		void RemoveState();
 
 		// Debut de chaque boucle
+		// Tous les changements se font ici
 		void ProcessStateChanges();
 
+		// Retourne l'état actif de la fenetre
 		StateRef& GetActiveState();
 
 	private:
-		std::stack<StateRef> _states;
-		StateRef _newState;
+		std::stack<StateRef> _states; // Pile des états
+		StateRef _newState; // Nouvel état
 
 		bool _isRemoving;
 		bool _isAdding;
