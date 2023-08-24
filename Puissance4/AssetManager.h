@@ -23,12 +23,18 @@ namespace Puissance4Modulable
 		// Retourne une référence vers la texture
 		sf::Texture& GetTexture(std::string name);
 
+		// Lisse la texture name si smooth = true
+		// Et desactive si smooth = false
+		void SetTextureSmooth(std::string name, bool smooth);
+
 		// Charge une font et la sauvegarde dans la map _fonts
 		// Prend le nom de la font et le nom+path du fichier en arguments
 		void LoadFont(std::string name, std::string fileName);
 
 		// Retourne une référence vers la font
 		sf::Font& GetFont(std::string name);
+
+
 
 	private:
 		// Prend le nom de la texture et y assigne la texture

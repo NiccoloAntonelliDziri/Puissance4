@@ -15,6 +15,11 @@ namespace Puissance4Modulable
 		return this->_textures.at(name);
 	}
 
+	void AssetManager::SetTextureSmooth(std::string name, bool smooth)
+	{
+		this->_textures.at(name).setSmooth(smooth);
+	}
+
 	void AssetManager::LoadFont(std::string name, std::string fileName)
 	{
 		sf::Font font;

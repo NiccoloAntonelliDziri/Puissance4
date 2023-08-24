@@ -10,20 +10,20 @@ namespace Puissance4Modulable {
 	class SplashState : public State
 	{
 	public:
-		explicit SplashState(GameDataRef data);
+		SplashState(GameDataRef data);
 
 		// Initialise le splash screen
 		// Charge la texture et crée le sprite _background
 		void Init() override;
 
 		// Gère les events relatifs au splash screen
-		void HandleInput();
+		void HandleInput() override;
 
 		// Switch to main menu
-		void Update(float dt);
+		void Update(float dt) override;
 
 		// Dessine la fênetre splash screen
-		void Draw(float dt);
+		void Draw(float dt) override;
 
 	private:
 		GameDataRef _data;
@@ -31,5 +31,6 @@ namespace Puissance4Modulable {
 		sf::Clock _clock;
 
 		sf::Sprite _background;
+		sf::Sprite _logo;
 	};
 }
