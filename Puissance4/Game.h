@@ -6,6 +6,7 @@
 #include "StateMachine.h"
 #include "AssetManager.h"
 #include "InputManager.h"
+#include "Plateau.h"
 
 namespace Puissance4Modulable
 {
@@ -15,6 +16,7 @@ namespace Puissance4Modulable
 		sf::RenderWindow window;
 		AssetManager assets;
 		InputManager input;
+		Plateau jeu;
 	};
 
 	using GameDataRef = std::shared_ptr<GameData>;

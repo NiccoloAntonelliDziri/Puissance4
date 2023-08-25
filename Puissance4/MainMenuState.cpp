@@ -2,6 +2,7 @@
 #include "DEFINITIONS.h"
 
 #include "GameState.h"
+#include "SelectState.h"
 
 #include <iostream>
 
@@ -46,8 +47,7 @@ namespace Puissance4Modulable {
 			}
 			if (this->_data->input.IsSpriteClicked(this->_playButton, sf::Mouse::Left, this->_data->window))
 			{
-				// Switch to game menu
-				this->_data->machine.AddState(StateRef(std::make_unique<GameState>(_data)), true);
+				this->_data->machine.AddState(StateRef(std::make_unique<SelectState>(_data)), true);
 			}
 		}
 	}

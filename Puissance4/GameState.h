@@ -22,15 +22,16 @@ namespace Puissance4Modulable
 		void Draw(float dt) override;
 
 	private:
-		void InitGridPieces();
+		// Initialise la grille
+		void InitGrid();
 
 		GameDataRef _data;
 
 		sf::Sprite _background;
 		sf::Sprite _pauseButton;
 
-		sf::Sprite _gridTiles;
-		sf::Sprite* _gridCellPieces;
+		std::unique_ptr<sf::Sprite[]> _gridEmpty; // Grille vide
+		std::unique_ptr<sf::Sprite[]> _gridCellPieces; // Tableau dynamique des pièces
 
 		int turn;
 		int gameState;

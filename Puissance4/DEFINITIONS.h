@@ -21,10 +21,12 @@
 #define HOME_BUTTON "Ressources/res/home.png"
 #define RETRY_BUTTON "Ressources/res/retry.png"
 
+#define BUTTON_7_X_6 "Ressources/res/6x7 Button.png"
+
 #define PAUSE_BUTTON "Ressources/res/pause.png"
 
-#define GAME_GRID_TILES "Ressources/res/Empty Gris Cells.png"
-#define RED_YELLOW_CELLS "Ressources/res/Red and Yellow cells"
+#define GAME_GRID_TILES "Ressources/res/Empty Grid Cells.png"
+#define RED_AND_YELLOW_PIECES "Ressources/res/Red and Yellow cells.png"
 
 #define RED_PIECE 8
 #define YELLOW_PIECE 0
