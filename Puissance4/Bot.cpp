@@ -4,7 +4,7 @@ using namespace std;
 
 int Puissance4Modulable::Player::genMove(const Plateau& jeu)
 {
-    affAll(jeu);
+    //affAll(jeu);
     int col = -1;
     cout << "Entrer num colonne: ";
     cin >> col;
