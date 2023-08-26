@@ -41,7 +41,7 @@ namespace Puissance4Modulable {
 			}
 			if (this->_data->input.IsSpriteClicked(this->_7x6Button, sf::Mouse::Left, this->_data->window))
 			{
-				InitPlateau(7, 6, 4);
+				InitPlateau(1, 2, 4);
 
 				// Switch to game menu
 				this->_data->machine.AddState(StateRef(std::make_unique<GameState>(_data)), true);

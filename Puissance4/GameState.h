@@ -22,16 +22,22 @@ namespace Puissance4Modulable
 		void Draw(float dt) override;
 
 	private:
-		// Initialise la grille
+		// Initialise setTexture et setTextureRect pour toutes les cellules de la grille
+		// en fonction de sa taille effective dynamiquement
 		void InitGrid();
+
+		// Dessine la grille
+		// AUCUNE VERIFICATION DE SI LA GRILLE ENTIERE RENTRE DANS LA FENETRE
+		// COMPORTEMENT INDETERMINE SI PLUS GRAND QUE LA FENETRE
+		void DrawGrid();
 
 		GameDataRef _data;
 
 		sf::Sprite _background;
 		sf::Sprite _pauseButton;
-
-		std::unique_ptr<sf::Sprite[]> _gridEmpty; // Grille vide
-		std::unique_ptr<sf::Sprite[]> _gridCellPieces; // Tableau dynamique des pièces
+		
+		std::unique_ptr<sf::Sprite[]> _grid;
+		sf::Vector2f _pos; // coord du coin en haut à gauche de _grid
 
 		int turn;
 		int gameState;

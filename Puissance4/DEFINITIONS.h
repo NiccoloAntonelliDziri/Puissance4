@@ -28,6 +28,8 @@
 #define GAME_GRID_TILES "Ressources/res/Empty Grid Cells.png"
 #define RED_AND_YELLOW_PIECES "Ressources/res/Red and Yellow cells.png"
 
+#define TAILLE_BOUTONS_STANDARD 64
+
 #define RED_PIECE 8
 #define YELLOW_PIECE 0
 #define EMPTY_PIECE -1
