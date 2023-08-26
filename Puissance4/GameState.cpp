@@ -269,8 +269,6 @@ namespace Puissance4Modulable {
 		{
 			// show game over
 		}
-
-		std::cout << gameState << std::endl;
 		
 	}
 }

@@ -139,7 +139,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Affichage.cpp" />
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="Bot.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -148,7 +147,6 @@
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="PauseState.cpp" />
-    <ClCompile Include="Puissance4.cpp" />
     <ClCompile Include="Plateau.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="SelectState.cpp" />
@@ -156,7 +154,6 @@
     <ClCompile Include="StateMachine.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Affichage.h" />
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="Bot.h" />
     <ClInclude Include="DEFINITIONS.h" />
@@ -166,7 +163,6 @@
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="PauseState.h" />
-    <ClInclude Include="Puissance4.h" />
     <ClInclude Include="Plateau.h" />
     <ClInclude Include="SelectState.h" />
     <ClInclude Include="SplashState.h" />
