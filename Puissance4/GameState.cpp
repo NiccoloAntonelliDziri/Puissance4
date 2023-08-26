@@ -81,7 +81,13 @@ namespace Puissance4Modulable {
 
 	void GameState::Update(float dt)
 	{
-
+		if (gameState == STATE_DRAW or gameState == STATE_LOSE or gameState == STATE_WON)
+		{
+			if (this->_clock.getElapsedTime().asSeconds() > TIME_BEFORE_SHOWING_GAME_OVER)
+			{
+				this->_data->machine.AddState(StateRef(std::make_unique<GameOverState>(_data)),true);
+			}
+		}
 	}
 
 	void GameState::Draw(float dt)
@@ -267,7 +273,7 @@ namespace Puissance4Modulable {
 
 		if (gameState == STATE_DRAW or gameState == STATE_LOSE or gameState == STATE_WON)
 		{
-			// show game over
+			this->_clock.restart();
 		}
 		
 	}

@@ -52,5 +52,7 @@ namespace Puissance4Modulable
 
 		int gameState;
 		int turn;
+
+		sf::Clock _clock;
 	};
 }

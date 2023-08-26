@@ -1,7 +1,7 @@
 #include <sstream>
 #include "GameOverState.h"
 #include "DEFINITIONS.h"
-#include "GameState.h"
+#include "SelectState.h"
 #include "MainMenuState.h"
 
 
@@ -38,7 +38,7 @@ namespace Puissance4Modulable
 			}
 			if (this->_data->input.IsSpriteClicked(this->_retryButton, sf::Mouse::Left, this->_data->window))
 			{
-				this->_data->machine.AddState(StateRef(std::make_unique<GameState>(_data)), true);
+				this->_data->machine.AddState(StateRef(std::make_unique<SelectState>(_data)), true);
 			}
 			if (this->_data->input.IsSpriteClicked(this->_homeButton, sf::Mouse::Left, this->_data->window))
 			{
