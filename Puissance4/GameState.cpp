@@ -45,6 +45,7 @@ namespace Puissance4Modulable {
 		_pos.y = SCREEN_HEIGHT/ 2 - TAILLE_BOUTONS_STANDARD * this->_data->jeu.getHauteur() / 2;
 
 		InitGrid();
+		InitGridPieces();
 	}
 
 	void GameState::HandleInput()
@@ -60,9 +61,8 @@ namespace Puissance4Modulable {
 			{
 				// Go to Pause State
 				this->_data->machine.AddState(StateRef(std::make_unique<PauseState>(_data)), false);
+
 				
-				// Game over State
-				//this->_data->machine.AddState(StateRef(std::make_unique<GameOverState>(_data)), true);
 
 			}
 		}
@@ -70,6 +70,7 @@ namespace Puissance4Modulable {
 
 	void GameState::Update(float dt)
 	{
+
 	}
 
 	void GameState::Draw(float dt)
@@ -78,7 +79,13 @@ namespace Puissance4Modulable {
 
 		this->_data->window.draw(this->_background);
 		this->_data->window.draw(this->_pauseButton);
+
 		DrawGrid();
+
+		for (int i = 0; i < this->_data->jeu.getTaille(); i++)
+		{
+			this->_data->window.draw(this->_cells[i]);
+		}
 
 		this->_data->window.display();
 	}
@@ -131,6 +138,30 @@ namespace Puissance4Modulable {
 
 				this->_grid[numCell].setPosition(position);
 				this->_data->window.draw(_grid[numCell]);
+
+				position.x += TAILLE_BOUTONS_STANDARD;
+
+			}
+			position.x = _pos.x;
+			position.y += TAILLE_BOUTONS_STANDARD;
+		}
+	}
+
+	void GameState::InitGridPieces()
+	{
+		this->_cells = std::make_unique<sf::Sprite[]>(this->_data->jeu.getTaille());
+
+		sf::Vector2f position = _pos;
+		for (int i = this->_data->jeu.getHauteur() - 1; i >= 0; i--)
+		{
+			for (int j = 0; j < this->_data->jeu.getLargeur(); j++)
+			{
+				int numCell = i + j * this->_data->jeu.getHauteur();
+
+				this->_cells[numCell].setTexture(this->_data->assets.GetTexture("Red and yellow pieces"));
+				this->_cells[numCell].setTextureRect(sf::IntRect(0, 0, 64, 64));
+				this->_cells[numCell].setPosition(position);
+				this->_cells[numCell].setColor(sf::Color(255,255,255,0));
 
 				position.x += TAILLE_BOUTONS_STANDARD;
 

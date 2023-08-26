@@ -31,6 +31,8 @@ namespace Puissance4Modulable
 		// COMPORTEMENT INDETERMINE SI PLUS GRAND QUE LA FENETRE
 		void DrawGrid();
 
+		void InitGridPieces();
+
 		GameDataRef _data;
 
 		sf::Sprite _background;
@@ -38,6 +40,8 @@ namespace Puissance4Modulable
 		
 		std::unique_ptr<sf::Sprite[]> _grid;
 		sf::Vector2f _pos; // coord du coin en haut à gauche de _grid
+
+		std::unique_ptr<sf::Sprite[]> _cells;
 
 		int turn;
 		int gameState;
