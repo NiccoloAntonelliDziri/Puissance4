@@ -17,6 +17,7 @@ namespace Puissance4Modulable
 		// Retourne la position de la souris dans la fenetre
 		sf::Vector2i GetMousePosition(sf::RenderWindow& window) const;
 
+		bool IsMouseClickedInArea(sf::IntRect area, sf::Mouse::Button button, sf::RenderWindow& window) const;
 	};
 
 }

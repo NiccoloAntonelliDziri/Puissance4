@@ -4,6 +4,8 @@
 #include "State.h"
 #include "Game.h"
 
+#include "Bot.h"
+
 namespace Puissance4Modulable
 {
 	class GameState : public State
@@ -33,17 +35,22 @@ namespace Puissance4Modulable
 
 		void InitGridPieces();
 
+		void CheckAndPlacePiece();
+
+		void CheckIfPlayerIsGoingToWin(int col);
+
 		GameDataRef _data;
 
 		sf::Sprite _background;
 		sf::Sprite _pauseButton;
 		
 		std::unique_ptr<sf::Sprite[]> _grid;
-		sf::Vector2f _pos; // coord du coin en haut à gauche de _grid
-
 		std::unique_ptr<sf::Sprite[]> _cells;
 
-		int turn;
+		sf::Vector2f _pos; // coord du coin en haut à gauche de _grid
+		sf::IntRect _gridArea;
+
 		int gameState;
+		int turn;
 	};
 }

@@ -22,5 +22,15 @@ namespace Puissance4Modulable
 		return sf::Mouse::getPosition(window);
 	}
 
-
+	bool InputManager::IsMouseClickedInArea(sf::IntRect area, sf::Mouse::Button button, sf::RenderWindow& window) const
+	{
+		if (sf::Mouse::isButtonPressed(button))
+		{
+			if (area.contains(sf::Mouse::getPosition(window)))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 }

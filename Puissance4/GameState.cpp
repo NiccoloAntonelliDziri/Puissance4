@@ -61,9 +61,20 @@ namespace Puissance4Modulable {
 			{
 				// Go to Pause State
 				this->_data->machine.AddState(StateRef(std::make_unique<PauseState>(_data)), false);
-
-				
-
+			}
+			if (gameState == STATE_PLAYING)
+			{
+				if (turn == PLAYER_PIECE)
+				{
+					if (this->_data->input.IsMouseClickedInArea(_gridArea, sf::Mouse::Left, this->_data->window))
+					{
+						this->CheckAndPlacePiece();
+					}
+				}
+				else if (turn == AI_PIECE)
+				{
+					this->CheckAndPlacePiece();
+				}
 			}
 		}
 	}
@@ -93,6 +104,9 @@ namespace Puissance4Modulable {
 	void GameState::InitGrid()
 	{
 		this->_grid = std::make_unique<sf::Sprite[]>(this->_data->jeu.getTaille());
+		_gridArea = sf::IntRect(_pos.x, _pos.y,
+			TAILLE_BOUTONS_STANDARD * this->_data->jeu.getLargeur(),
+			TAILLE_BOUTONS_STANDARD * this->_data->jeu.getHauteur());
 
 		int topRight = this->_data->jeu.getTaille() - 1;
 		int topLeft = this->_data->jeu.getHauteur() - 1;
@@ -159,7 +173,7 @@ namespace Puissance4Modulable {
 				int numCell = i + j * this->_data->jeu.getHauteur();
 
 				this->_cells[numCell].setTexture(this->_data->assets.GetTexture("Red and yellow pieces"));
-				this->_cells[numCell].setTextureRect(sf::IntRect(0, 0, 64, 64));
+				//this->_cells[numCell].setTextureRect(sf::IntRect(0, 0, 64, 64));
 				this->_cells[numCell].setPosition(position);
 				this->_cells[numCell].setColor(sf::Color(255,255,255,0));
 
@@ -169,6 +183,95 @@ namespace Puissance4Modulable {
 			position.x = _pos.x;
 			position.y += TAILLE_BOUTONS_STANDARD;
 		}
+	}
+
+	void GameState::CheckAndPlacePiece()
+	{
+		sf::Vector2i touchPoint = this->_data->input.GetMousePosition(this->_data->window);
+		
+		sf::Vector2f gapOutSideOfGrid = sf::Vector2f((SCREEN_WIDHT - _gridArea.width) / 2,
+			(SCREEN_HEIGHT - _gridArea.height) / 2);
+
+		sf::Vector2f gridLocalTouchPos = sf::Vector2f(touchPoint.x - gapOutSideOfGrid.x,
+			touchPoint.y - gapOutSideOfGrid.y);
+
+		float gridSectionSize = _gridArea.width / _data->jeu.getLargeur();
+
+		int column;
+
+		if (turn == PLAYER_PIECE)
+		{
+			for (int i = 1; i <= _data->jeu.getLargeur(); i++)
+			{
+				if (gridLocalTouchPos.x < gridSectionSize * i) {
+					column = i - 1;
+					break;
+				}
+			}
+		}
+		else if (turn == AI_PIECE)
+		{
+			// CHANGER POUR POUVOIR SELECTIONNER LES BOTS ET LA DIFFICULTE
+			Uniform bot;
+			column = bot.genMove(this->_data->jeu);
+		}
+
+		if (_data->jeu.isColValide(column))
+		{
+			if (turn == PLAYER_PIECE)
+			{
+				int cell = column * _data->jeu.getHauteur() + _data->jeu.getNbJetonsParCol(column);
+				_cells[cell].setTextureRect(sf::IntRect(0, 0, TAILLE_BOUTONS_STANDARD, TAILLE_BOUTONS_STANDARD));
+				_cells[cell].setColor(sf::Color::White);
+
+				CheckIfPlayerIsGoingToWin(column);
+
+				_data->jeu.ajouteCell(column);
+
+				turn = AI_PIECE;
+			}
+			else if (turn == AI_PIECE)
+			{
+				int cell = column * _data->jeu.getHauteur() + _data->jeu.getNbJetonsParCol(column);
+				_cells[cell].setTextureRect(sf::IntRect(TAILLE_BOUTONS_STANDARD, 0, TAILLE_BOUTONS_STANDARD, TAILLE_BOUTONS_STANDARD));
+				_cells[cell].setColor(sf::Color::White);
+
+				CheckIfPlayerIsGoingToWin(column);
+
+				_data->jeu.ajouteCell(column);
+
+				turn = PLAYER_PIECE;
+			}
+
+		}
+	}
+
+	void GameState::CheckIfPlayerIsGoingToWin(int col)
+	{
+		// Egalité
+		if (_data->jeu.getNbMoves() + 1 == _data->jeu.getTaille())
+		{
+			gameState = STATE_DRAW;
+		}
+		if (_data->jeu.isWinningMove(col))
+		{
+			if (turn == PLAYER_PIECE)
+			{
+				gameState = STATE_WON;
+			}
+			else if (turn == AI_PIECE)
+			{
+				gameState = STATE_LOSE;
+			}
+		}
+
+		if (gameState == STATE_DRAW or gameState == STATE_LOSE or gameState == STATE_WON)
+		{
+			// show game over
+		}
+
+		std::cout << gameState << std::endl;
+		
 	}
 }
 
