@@ -122,6 +122,9 @@ namespace Puissance4Modulable {
 		// NE PAS appeler si col n'est pas une colonne valide
 		bool isWinningMove(int col) const;
 
+		// Reinitialise tout le plateau à vide
+		void reInit(int largeur = 7, int hauteur = 6, int puissance = 4);
+
 		// Retourne true si une colonne est jouable et false sinon
 		inline bool isColValide(int col) const { return colonnes[col] < HAUTEUR and col >= 0 and col < LARGEUR; }
 

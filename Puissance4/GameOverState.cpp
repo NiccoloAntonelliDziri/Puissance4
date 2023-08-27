@@ -1,9 +1,10 @@
 #include <sstream>
 #include "GameOverState.h"
 #include "DEFINITIONS.h"
+
 #include "SelectState.h"
 #include "MainMenuState.h"
-
+#include "GameState.h"
 
 namespace Puissance4Modulable
 {
@@ -38,7 +39,13 @@ namespace Puissance4Modulable
 			}
 			if (this->_data->input.IsSpriteClicked(this->_retryButton, sf::Mouse::Left, this->_data->window))
 			{
-				this->_data->machine.AddState(StateRef(std::make_unique<SelectState>(_data)), true);
+				int largeur = _data->jeu.getLargeur();
+				int hauteur = _data->jeu.getHauteur();
+				int puissance = _data->jeu.getPuissance();
+
+				this->_data->jeu.reInit(largeur, hauteur, puissance);
+
+				this->_data->machine.AddState(StateRef(std::make_unique<GameState>(_data)), true);
 			}
 			if (this->_data->input.IsSpriteClicked(this->_homeButton, sf::Mouse::Left, this->_data->window))
 			{
