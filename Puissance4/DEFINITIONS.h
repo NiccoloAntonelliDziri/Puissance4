@@ -20,6 +20,7 @@
 #define RESUME_BUTTON "Ressources/res/resume.png"
 #define HOME_BUTTON "Ressources/res/home.png"
 #define RETRY_BUTTON "Ressources/res/retry.png"
+#define GITHUB_BUTTON "Ressources/res/github.png"
 
 #define BUTTON_7_X_6 "Ressources/res/6x7 Button.png"
 
@@ -27,6 +28,8 @@
 
 #define GAME_GRID_TILES "Ressources/res/Empty Grid Cells.png"
 #define RED_AND_YELLOW_PIECES "Ressources/res/Red and Yellow cells.png"
+
+
 
 #define TAILLE_BOUTONS_STANDARD 64
 

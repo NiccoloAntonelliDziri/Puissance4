@@ -25,6 +25,14 @@ namespace Puissance4Modulable
 
 		sf::Sprite _background;
 		sf::Sprite _7x6Button;
+
+		sf::Text _textLargeur;
+		sf::Text _textHauteur;
+		sf::Text _textPuissance;
+
+		int _choixLargeur;
+		int _choixHauteur;
+		int _choixPuissance;
 	};
 
 }

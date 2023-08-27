@@ -4,7 +4,9 @@
 #include "GameState.h"
 #include "SelectState.h"
 
-#include <iostream>
+#include <Windows.h>
+#include <shellapi.h>
+
 
 namespace Puissance4Modulable {
 
@@ -17,10 +19,12 @@ namespace Puissance4Modulable {
 		this->_data->assets.LoadTexture("Main Menu Background", MAIN_MENU_BACKGROUD_FILEPATH);
 		this->_data->assets.LoadTexture("Play Button", MAIN_MENU_PLAY_BUTTON);
 		this->_data->assets.LoadTexture("Game Title", MAIN_MENU_TITLE_PATH);
+		this->_data->assets.LoadTexture("Github Button", GITHUB_BUTTON);
 
 		this->_background.setTexture(this->_data->assets.GetTexture("Main Menu Background"));
 		this->_playButton.setTexture(this->_data->assets.GetTexture("Play Button"));
 		this->_title.setTexture(this->_data->assets.GetTexture("Game Title"));
+		this->_github.setTexture(this->_data->assets.GetTexture("Github Button"));
 
 		// Centrage background
 		this->_background.setPosition(SCREEN_WIDHT / 2 - this->_background.getGlobalBounds().width / 2,
@@ -29,6 +33,10 @@ namespace Puissance4Modulable {
 		// Positionne play button au centre
 		this->_playButton.setPosition(SCREEN_WIDHT / 2 - this->_playButton.getGlobalBounds().width / 2,
 			SCREEN_HEIGHT / 2 - this->_playButton.getGlobalBounds().height / 2);
+
+
+		this->_github.setPosition(this->_data->window.getSize().x - _github.getGlobalBounds().width,
+			this->_data->window.getSize().y - _github.getGlobalBounds().height);
 
 		// Positionne au centre mais en haut
 		this->_title.setPosition(SCREEN_WIDHT / 2 - this->_title.getGlobalBounds().width / 2,
@@ -49,6 +57,10 @@ namespace Puissance4Modulable {
 			{
 				this->_data->machine.AddState(StateRef(std::make_unique<SelectState>(_data)), true);
 			}
+			if (this->_data->input.IsSpriteClicked(this->_github, sf::Mouse::Left, this->_data->window))
+			{
+				ShellExecute(0, 0, L"https://github.com/NiccoloAntonelliDziri/Puissance4", 0, 0, SW_SHOW);
+			}
 		}
 	}
 
@@ -63,6 +75,7 @@ namespace Puissance4Modulable {
 		this->_data->window.draw(this->_background);
 		this->_data->window.draw(this->_playButton);
 		this->_data->window.draw(this->_title);
+		this->_data->window.draw(this->_github);
 
 		this->_data->window.display();
 	}
