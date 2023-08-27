@@ -1,6 +1,7 @@
 #pragma once
 
 #include <algorithm>
+#include "DEFINITIONS.h"
 
 // Représente le contenu d'une cellule du plateau
 enum class Cell { ROUGE, JAUNE, VIDE };
@@ -31,7 +32,7 @@ namespace Puissance4Modulable {
 		int* colonnes; // Tableau avec le nombre de jetons dans chaque colonne du plateau
 		Cell* plateau; // Grille de jeu
 	public:
-		Plateau(int largeur = 7, int hauteur = 6, int puissance = 4) :
+		Plateau(int largeur = LARGEUR_PAR_DEFAUT, int hauteur = HAUTEUR_PAR_DEFAUT, int puissance = PUISSANCE_PAR_DEFAUT) :
 			LARGEUR(largeur), HAUTEUR(hauteur), PUISSANCE(puissance)
 			{
 			colonnes = new int[LARGEUR];
@@ -123,7 +124,7 @@ namespace Puissance4Modulable {
 		bool isWinningMove(int col) const;
 
 		// Reinitialise tout le plateau à vide
-		void reInit(int largeur = 7, int hauteur = 6, int puissance = 4);
+		void reInit(int largeur = LARGEUR_PAR_DEFAUT, int hauteur = HAUTEUR_PAR_DEFAUT, int puissance = PUISSANCE_PAR_DEFAUT);
 
 		// Retourne true si une colonne est jouable et false sinon
 		inline bool isColValide(int col) const { return colonnes[col] < HAUTEUR and col >= 0 and col < LARGEUR; }
