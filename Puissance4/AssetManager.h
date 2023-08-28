@@ -3,6 +3,7 @@
 #include <map>
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 
 namespace Puissance4Modulable
 {
@@ -34,13 +35,19 @@ namespace Puissance4Modulable
 		// Retourne une référence vers la font
 		sf::Font& GetFont(std::string name);
 
+		// Charge un son et le sauvegarde dans la map _sounds
+		// Prend le nom du son et le nom+path du fichier en arguments
+		void LoadSoundBuffer(std::string name, std::string fileName);
 
+		// Retourne une référence vers le son
+		sf::SoundBuffer& GetSoundBuffer(std::string name);
 
 	private:
 		// Prend le nom de la texture et y assigne la texture
 		std::map<std::string, sf::Texture> _textures;
 		// Prend le nom de la police d'écriture et y assigne la font
 		std::map<std::string, sf::Font> _fonts;
-
+		// Prend le nom du son et y assigne le son
+		std::map<std::string, sf::SoundBuffer> _soundsBuffer;
 	};
 }
