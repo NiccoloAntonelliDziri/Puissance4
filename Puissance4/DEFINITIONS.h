@@ -53,6 +53,12 @@
 #define FONT_CHAKRAPETCH_REGULAR_PATH "Ressources/fonts/ChakraPetch-Regular.ttf"
 #define FONT_CHAKRAPETCH_BOLD_PATH "Ressources/fonts/ChakraPetch-Bold.ttf"
 
+// https://freesound.org/people/EminYILDIRIM/sounds/540568/
+#define SOUND_BUTTONS_FILE "Ressources/sound/540568__eminyildirim__ui-pop-up.wav"
+
+// https://freesound.org/people/YellowTree/sounds/693384/
+#define GAME_MUSIC "Ressources/sound/693384__yellowtree__weather-forecast-type-beat.wav"
+
 #define TAILLE_BOUTONS_STANDARD 64
 
 #define RED_PIECE 8

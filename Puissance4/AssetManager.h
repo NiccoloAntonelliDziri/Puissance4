@@ -5,6 +5,8 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 
+#include <iostream>
+
 namespace Puissance4Modulable
 {
 	// Classe qui gère les différentes ressources

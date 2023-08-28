@@ -150,6 +150,7 @@
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
+    <ClCompile Include="MusicManager.cpp" />
     <ClCompile Include="PauseState.cpp" />
     <ClCompile Include="Plateau.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -166,9 +167,9 @@
     <ClInclude Include="GameState.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="MainMenuState.h" />
+    <ClInclude Include="MusicManager.h" />
     <ClInclude Include="PauseState.h" />
     <ClInclude Include="Plateau.h" />
-    <ClInclude Include="resource.h" />
     <ClInclude Include="SelectState.h" />
     <ClInclude Include="SplashState.h" />
     <ClInclude Include="State.h" />

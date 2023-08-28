@@ -6,7 +6,9 @@
 #include "StateMachine.h"
 #include "AssetManager.h"
 #include "InputManager.h"
+#include "MusicManager.h"
 #include "Plateau.h"
+
 
 namespace Puissance4Modulable
 {
@@ -15,6 +17,7 @@ namespace Puissance4Modulable
 		StateMachine machine;
 		sf::RenderWindow window;
 		AssetManager assets;
+		MusicManager music;
 		InputManager input;
 		Plateau jeu;
 	};

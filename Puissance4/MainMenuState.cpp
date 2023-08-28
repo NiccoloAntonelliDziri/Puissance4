@@ -46,6 +46,11 @@ namespace Puissance4Modulable {
 		this->_title.setPosition(SCREEN_WIDHT / 2 - this->_title.getGlobalBounds().width / 2,
 			this->_title.getGlobalBounds().height * 0.1);
 
+		if (!this->_data->music.IsPlaying())
+		{
+			this->_data->music.OpenMusic(GAME_MUSIC);
+			this->_data->music.Play();
+		}
 	}
 
 	void MainMenuState::HandleInput()
