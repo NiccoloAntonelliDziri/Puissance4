@@ -40,12 +40,15 @@ namespace Puissance4Modulable {
 		this->_arrowsPuissance.at(1).setScale(0.5, 0.5);
 
 		this->_textHauteur.setFont(this->_data->assets.GetFont("ChakrPetch Regular"));
+		this->_textHauteur.setStyle(sf::Text::Bold);
 		this->_textHauteur.setString(TEXT_SELECT_HAUTEUR);
 		this->_textHauteur.setFillColor(sf::Color::Black);
 		this->_textLargeur.setFont(this->_data->assets.GetFont("ChakrPetch Regular"));
+		this->_textLargeur.setStyle(sf::Text::Bold);
 		this->_textLargeur.setString(TEXT_SELECT_LARGEUR);
 		this->_textLargeur.setFillColor(sf::Color::Black);
 		this->_textPuissance.setFont(this->_data->assets.GetFont("ChakrPetch Regular"));
+		this->_textPuissance.setStyle(sf::Text::Bold);
 		this->_textPuissance.setString(TEXT_SELECT_PUISSANCE);
 		this->_textPuissance.setFillColor(sf::Color::Black);
 

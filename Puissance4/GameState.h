@@ -54,5 +54,7 @@ namespace Puissance4Modulable
 		int turn;
 
 		sf::Clock _clock;
+
+		sf::Text _gameOverText;
 	};
 }

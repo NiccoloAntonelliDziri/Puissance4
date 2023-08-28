@@ -51,6 +51,7 @@
 #define RED_AND_YELLOW_PIECES "Ressources/res/Red and Yellow cells.png"
 
 #define FONT_CHAKRAPETCH_REGULAR_PATH "Ressources/fonts/ChakraPetch-Regular.ttf"
+#define FONT_CHAKRAPETCH_BOLD_PATH "Ressources/fonts/ChakraPetch-Bold.ttf"
 
 #define TAILLE_BOUTONS_STANDARD 64
 
@@ -68,4 +69,4 @@
 #define STATE_AI_PLAYING 93
 #define STATE_DRAW 92
 
-#define TIME_BEFORE_SHOWING_GAME_OVER 1.5
+#define TIME_BEFORE_SHOWING_GAME_OVER 2

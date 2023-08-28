@@ -21,6 +21,8 @@ namespace Puissance4Modulable {
 		this->_data->assets.LoadTexture("Game Title", MAIN_MENU_TITLE_PATH);
 		this->_data->assets.LoadTexture("Github Button", GITHUB_BUTTON);
 
+		this->_data->assets.LoadFont("ChakrPetch Bold", FONT_CHAKRAPETCH_BOLD_PATH);
+
 		this->_background.setTexture(this->_data->assets.GetTexture("Main Menu Background"));
 		this->_playButton.setTexture(this->_data->assets.GetTexture("Play Button"));
 		this->_title.setTexture(this->_data->assets.GetTexture("Game Title"));

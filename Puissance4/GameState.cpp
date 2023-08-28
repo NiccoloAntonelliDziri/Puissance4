@@ -34,6 +34,15 @@ namespace Puissance4Modulable {
 		// Idem
 		_pauseButton.setTexture(this->_data->assets.GetTexture("Pause Button"));
 
+		_gameOverText.setFont(this->_data->assets.GetFont("ChakrPetch Bold"));
+		//_gameOverText.setStyle(sf::Text::Bold);
+		_gameOverText.setFillColor(sf::Color(255, 0, 0, 220));
+		_gameOverText.setOutlineThickness(3);
+		_gameOverText.setOutlineColor(sf::Color(0, 0, 0, 220));
+		_gameOverText.setLetterSpacing(1.5);
+		_gameOverText.setCharacterSize(120);
+
+
 			// Centrage background CHANGE CA si on change de background
 		this->_background.setPosition(SCREEN_WIDHT / 2 - this->_background.getGlobalBounds().width / 2,
 			SCREEN_HEIGHT / 2 - this->_background.getGlobalBounds().height / 2);
@@ -83,6 +92,21 @@ namespace Puissance4Modulable {
 	{
 		if (gameState == STATE_DRAW or gameState == STATE_LOSE or gameState == STATE_WON)
 		{
+			if (gameState == STATE_DRAW) {
+				_gameOverText.setString(L"EGALITE");
+				_gameOverText.setPosition(SCREEN_WIDHT / 2 - this->_gameOverText.getGlobalBounds().width / 2,
+					SCREEN_HEIGHT / 2 - this->_gameOverText.getGlobalBounds().height / 2);
+			}
+			if (gameState == STATE_LOSE) {
+				_gameOverText.setString(L"PERDU");
+				_gameOverText.setPosition(SCREEN_WIDHT / 2 - this->_gameOverText.getGlobalBounds().width / 2,
+					SCREEN_HEIGHT / 2 - this->_gameOverText.getGlobalBounds().height / 2);
+			}
+			if (gameState == STATE_WON) {
+				_gameOverText.setString(L"GAGNE");
+				_gameOverText.setPosition(SCREEN_WIDHT / 2 - this->_gameOverText.getGlobalBounds().width / 2,
+					SCREEN_HEIGHT / 2 - this->_gameOverText.getGlobalBounds().height / 2);
+			}
 			if (this->_clock.getElapsedTime().asSeconds() > TIME_BEFORE_SHOWING_GAME_OVER)
 			{
 				this->_data->machine.AddState(StateRef(std::make_unique<GameOverState>(_data)),true);
@@ -103,6 +127,8 @@ namespace Puissance4Modulable {
 		{
 			this->_data->window.draw(this->_cells[i]);
 		}
+
+		this->_data->window.draw(this->_gameOverText);
 
 		this->_data->window.display();
 	}
