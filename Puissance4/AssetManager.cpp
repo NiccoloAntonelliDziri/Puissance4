@@ -33,17 +33,16 @@ namespace Puissance4Modulable
 		return this->_fonts.at(name);
 	}
 
-	void AssetManager::LoadSoundBuffer(std::string name, std::string fileName)
+	void AssetManager::LoadSound(std::string name, std::string fileName)
 	{
-		sf::SoundBuffer buffer;
-		if (buffer.loadFromFile(fileName))
+		if (this->_soundBuffer[name].loadFromFile(fileName))
 		{
-			this->_soundsBuffer[name] = buffer;
+			this->_sounds[name].setBuffer(this->_soundBuffer.at(name));
 		}
 	}
 
-	sf::SoundBuffer& AssetManager::GetSoundBuffer(std::string name)
+	void AssetManager::Play(std::string name)
 	{
-		return this->_soundsBuffer.at(name);
+		this->_sounds[name].play();
 	}
 }

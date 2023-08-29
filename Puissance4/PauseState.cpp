@@ -42,10 +42,13 @@ namespace Puissance4Modulable {
 			}
 			if (this->_data->input.IsSpriteClicked(this->_resumeButton, sf::Mouse::Left, this->_data->window))
 			{
+				this->_data->assets.Play("Button Pressed");
 				this->_data->machine.RemoveState();
 			}
 			if (this->_data->input.IsSpriteClicked(this->_homeButton, sf::Mouse::Left, this->_data->window))
 			{
+				this->_data->assets.Play("Button Pressed");
+
 				this->_data->machine.RemoveState();
 				this->_data->machine.AddState(StateRef(std::make_unique<MainMenuState>(_data)), true);
 			}

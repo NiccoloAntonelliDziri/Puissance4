@@ -69,6 +69,7 @@ namespace Puissance4Modulable {
 			if (this->_data->input.IsSpriteClicked(this->_pauseButton, sf::Mouse::Left, this->_data->window))
 			{
 				// Go to Pause State
+				this->_data->assets.Play("Button Pressed");
 				this->_data->machine.AddState(StateRef(std::make_unique<PauseState>(_data)), false);
 			}
 			if (gameState == STATE_PLAYING)
@@ -77,6 +78,7 @@ namespace Puissance4Modulable {
 				{
 					if (this->_data->input.IsMouseClickedInArea(_gridArea, sf::Mouse::Left, this->_data->window))
 					{
+						this->_data->assets.Play("Button Pressed");
 						this->CheckAndPlacePiece();
 					}
 				}

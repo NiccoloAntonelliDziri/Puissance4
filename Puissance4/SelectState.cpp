@@ -4,6 +4,8 @@
 #include "GameState.h"
 
 #include <iostream>
+#include <Windows.h>
+#include <shellapi.h>
 
 namespace Puissance4Modulable {
 
@@ -24,6 +26,7 @@ namespace Puissance4Modulable {
 		_background.setTexture(this->_data->assets.GetTexture("Main Menu Background"));
 
 		this->_playButton.setTexture(this->_data->assets.GetTexture("Play Button Select Menu"));
+		this->_githubButton.setTexture(this->_data->assets.GetTexture("Github Button"));
 
 		this->_arrowsHauteur.at(0).setTexture(this->_data->assets.GetTexture("Up arrow"));
 		this->_arrowsHauteur.at(1).setTexture(this->_data->assets.GetTexture("Down arrow"));
@@ -73,6 +76,10 @@ namespace Puissance4Modulable {
 		this->_playButton.setPosition(SCREEN_WIDHT / 2 - this->_playButton.getGlobalBounds().width / 2,
 			SCREEN_HEIGHT / 5 * 4 - this->_playButton.getGlobalBounds().height / 2);
 
+		// Bas à droite
+		this->_githubButton.setPosition(this->_data->window.getSize().x - _githubButton.getGlobalBounds().width,
+			this->_data->window.getSize().y - _githubButton.getGlobalBounds().height);
+
 		// Position Largeur
 		this->_textLargeur.setPosition(SCREEN_WIDHT / 2 - _textLargeur.getGlobalBounds().width / 2 - _valueLargeur.getGlobalBounds().width / 2,
 			SCREEN_HEIGHT / 5 - this->_textLargeur.getLocalBounds().height / 2); // Divisé par 5 car 4 boutons
@@ -121,40 +128,54 @@ namespace Puissance4Modulable {
 			}
 			if (this->_data->input.IsSpriteClicked(this->_playButton, sf::Mouse::Left, this->_data->window))
 			{
+				this->_data->assets.Play("Button Pressed");
+
 				InitPlateau(_choixLargeur, _choixHauteur, _choixPuissance);
 
 				// Switch to game menu
 				this->_data->machine.AddState(StateRef(std::make_unique<GameState>(_data)), true);
 			}
+			if (this->_data->input.IsSpriteClicked(this->_githubButton, sf::Mouse::Left, this->_data->window))
+			{
+				this->_data->assets.Play("Button Pressed");
+				ShellExecute(0, 0, L"https://github.com/NiccoloAntonelliDziri/Puissance4", 0, 0, SW_SHOW);
+			}
+
 			if (this->_data->input.IsSpriteClicked(this->_arrowsHauteur.at(0), sf::Mouse::Left, this->_data->window))
 			{ // Hauteur flèche haut
+				this->_data->assets.Play("Button Pressed");
 				ChangeValueOfHauteur(true);
 				this->_valueHauteur.setString(std::to_string(_choixHauteur));
 			}
 			if (this->_data->input.IsSpriteClicked(this->_arrowsHauteur.at(1), sf::Mouse::Left, this->_data->window))
 			{ // Hauteur flèche bas
+				this->_data->assets.Play("Button Pressed");
 				ChangeValueOfHauteur(false);
 				this->_valueHauteur.setString(std::to_string(_choixHauteur));
 			}
 
 			if (this->_data->input.IsSpriteClicked(this->_arrowsLargeur.at(0), sf::Mouse::Left, this->_data->window))
 			{ // Largeur flèche haut
+				this->_data->assets.Play("Button Pressed");
 				ChangeValueOfLargeur(true);
 				this->_valueLargeur.setString(std::to_string(_choixLargeur));
 			}
 			if (this->_data->input.IsSpriteClicked(this->_arrowsLargeur.at(1), sf::Mouse::Left, this->_data->window))
 			{ // Largeur flèche bas
+				this->_data->assets.Play("Button Pressed");
 				ChangeValueOfLargeur(false);
 				this->_valueLargeur.setString(std::to_string(_choixLargeur));
 			}
 
 			if (this->_data->input.IsSpriteClicked(this->_arrowsPuissance.at(0), sf::Mouse::Left, this->_data->window))
 			{ // Puissance flèche haut
+				this->_data->assets.Play("Button Pressed");
 				ChangeValueOfPuissance(true);
 				this->_valuePuissance.setString(std::to_string(_choixPuissance));
 			}
 			if (this->_data->input.IsSpriteClicked(this->_arrowsPuissance.at(1), sf::Mouse::Left, this->_data->window))
 			{ // Puissance flèche bas
+				this->_data->assets.Play("Button Pressed");
 				ChangeValueOfPuissance(false);
 				this->_valuePuissance.setString(std::to_string(_choixPuissance));
 			}
@@ -172,6 +193,7 @@ namespace Puissance4Modulable {
 
 		this->_data->window.draw(this->_background);
 		this->_data->window.draw(this->_playButton);
+		this->_data->window.draw(this->_githubButton);
 
 		// Dessine Largeur
 		this->_data->window.draw(this->_textLargeur);

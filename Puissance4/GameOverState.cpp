@@ -26,6 +26,7 @@ namespace Puissance4Modulable
 		// ducoup ici on multiplie par 2 (fraction 2/3) pour le positionner à coté
 		this->_homeButton.setPosition(this->_data->window.getSize().x / 2 - this->_homeButton.getLocalBounds().width / 2,
 			this->_data->window.getSize().y / 3 * 2 - this->_homeButton.getLocalBounds().height / 2);
+
 	}
 
 	void GameOverState::HandleInput()
@@ -39,6 +40,9 @@ namespace Puissance4Modulable
 			}
 			if (this->_data->input.IsSpriteClicked(this->_retryButton, sf::Mouse::Left, this->_data->window))
 			{
+
+				this->_data->assets.Play("Button Pressed");
+
 				int largeur = _data->jeu.getLargeur();
 				int hauteur = _data->jeu.getHauteur();
 				int puissance = _data->jeu.getPuissance();
@@ -49,6 +53,7 @@ namespace Puissance4Modulable
 			}
 			if (this->_data->input.IsSpriteClicked(this->_homeButton, sf::Mouse::Left, this->_data->window))
 			{
+				this->_data->assets.Play("Button Pressed");
 				this->_data->machine.AddState(StateRef(std::make_unique<MainMenuState>(_data)), true);
 			}
 		}

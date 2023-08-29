@@ -39,10 +39,10 @@ namespace Puissance4Modulable
 
 		// Charge un son et le sauvegarde dans la map _sounds
 		// Prend le nom du son et le nom+path du fichier en arguments
-		void LoadSoundBuffer(std::string name, std::string fileName);
+		void LoadSound(std::string name, std::string fileName);
 
-		// Retourne une référence vers le son
-		sf::SoundBuffer& GetSoundBuffer(std::string name);
+		// Joue le son name
+		void Play(std::string name);
 
 	private:
 		// Prend le nom de la texture et y assigne la texture
@@ -50,6 +50,8 @@ namespace Puissance4Modulable
 		// Prend le nom de la police d'écriture et y assigne la font
 		std::map<std::string, sf::Font> _fonts;
 		// Prend le nom du son et y assigne le son
-		std::map<std::string, sf::SoundBuffer> _soundsBuffer;
+		std::map<std::string, sf::SoundBuffer> _soundBuffer;
+
+		std::map<std::string, sf::Sound> _sounds;
 	};
 }

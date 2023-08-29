@@ -63,7 +63,6 @@
 
 #define RED_PIECE 8
 #define YELLOW_PIECE 0
-#define EMPTY_PIECE -1
 #define PLAYER_PIECE RED_PIECE
 #define AI_PIECE YELLOW_PIECE
 

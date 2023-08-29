@@ -3,8 +3,10 @@
 namespace Puissance4Modulable {
 	MusicManager::MusicManager()
 	{
+		_volume = 100;
 		_status = MusicStatus::DoesntExist;
 	}
+
 	void MusicManager::OpenMusic(std::string filePath)
 	{
 		if (!_gameMusic.openFromFile(filePath))
@@ -26,6 +28,22 @@ namespace Puissance4Modulable {
 	{
 		_gameMusic.play();
 		_status = MusicStatus::Playing;
+	}
+
+	void MusicManager::SetVolume(int volume)
+	{
+		_volume = volume;
+		_gameMusic.setVolume(volume);
+	}
+
+	void MusicManager::Mute()
+	{
+		_gameMusic.setVolume(0);
+	}
+
+	void MusicManager::DeMute()
+	{
+		_gameMusic.setVolume(_volume);
 	}
 
 }
