@@ -27,6 +27,14 @@ namespace Puissance4Modulable {
 		this->_soundOffButton.setTexture(this->_data->assets.GetTexture("Sound Off Button"));
 		this->_soundOnButton.setTexture(this->_data->assets.GetTexture("Sound On Button"));
 
+		this->_settingsStateTitle.setFont(this->_data->assets.GetFont("ChakraPetch Bold"));
+
+		this->_settingsStateTitle.setString(L"Paramètres");
+		this->_settingsStateTitle.setFillColor(sf::Color::Black);
+		this->_settingsStateTitle.setCharacterSize(36);
+
+		this->_settingsStateTitle.setPosition(0, 0);
+
 		// Les deux à la même position
 		this->_soundOffButton.setPosition(this->_data->window.getSize().x / 2 - this->_soundOffButton.getLocalBounds().width / 2,
 			this->_data->window.getSize().y / 4 - this->_soundOffButton.getLocalBounds().height / 2);
@@ -113,6 +121,8 @@ namespace Puissance4Modulable {
 		this->_data->window.draw(this->_background);
 		this->_data->window.draw(this->_resumeButton);
 		this->_data->window.draw(this->_homeButton);
+
+		this->_data->window.draw(this->_settingsStateTitle);
 
 		this->_data->window.draw(this->_soundOffButton);
 	

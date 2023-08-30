@@ -27,6 +27,7 @@ namespace Puissance4Modulable
 		sf::Sprite _homeButton;
 		sf::Sprite _soundOnButton;
 		sf::Sprite _soundOffButton;
-	};
 
+		sf::Text _settingsStateTitle;
+	};
 }
