@@ -35,13 +35,18 @@ namespace Puissance4Modulable {
 		// Met le volume du son à sa valeur définie
 		void DeMute();
 
+		// Retourne true si la musique est muted (on ne peut pas l'entendre)
+		// et false sinon (on peut l'entendre)
+		bool IsMuted();
+
 		// Si enable == true met la musique en loop mode
 		// Si false le disactive
 		void EnableLoop(bool enable);
 
 	private:
 		sf::Music _gameMusic;
-		int _volume;
+		bool _isMusicMuted;
+		float _volume;
 
 		MusicStatus _status;
 	};

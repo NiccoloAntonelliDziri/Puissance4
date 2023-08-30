@@ -1,9 +1,10 @@
 #include "MusicManager.h"
 
 namespace Puissance4Modulable {
-	MusicManager::MusicManager()
+	MusicManager::MusicManager() 
 	{
 		_volume = 100;
+		_isMusicMuted = false;
 		_status = MusicStatus::DoesntExist;
 	}
 
@@ -39,16 +40,22 @@ namespace Puissance4Modulable {
 	void MusicManager::Mute()
 	{
 		_gameMusic.setVolume(0);
+		this->_isMusicMuted = true;
 	}
 
 	void MusicManager::DeMute()
 	{
 		_gameMusic.setVolume(_volume);
+		this->_isMusicMuted = false;
+	}
+
+	bool MusicManager::IsMuted()
+	{
+		return this->_isMusicMuted;
 	}
 
 	void MusicManager::EnableLoop(bool enable)
 	{
 		_gameMusic.setLoop(enable);
 	}
-
 }

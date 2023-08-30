@@ -34,6 +34,8 @@
 #define RETRY_BUTTON "Ressources/res/retry.png"
 #define GITHUB_BUTTON "Ressources/res/github.png"
 #define SETTINGS_BUTTON "Ressources/res/settings.png"
+#define SOUND_ON "Ressources/res/sound on.png"
+#define SOUND_OFF "Ressources/res/sound off.png"
 
 #define ARROW_UP "Ressources/res/up arrow.png"
 #define ARROW_DOWN "Ressources/res/down arrow.png"
