@@ -27,6 +27,7 @@ namespace Puissance4Modulable {
 
 		this->_playButton.setTexture(this->_data->assets.GetTexture("Play Button Select Menu"));
 		this->_githubButton.setTexture(this->_data->assets.GetTexture("Github Button"));
+		this->_settings.setTexture(this->_data->assets.GetTexture("Settings Button"));
 
 		this->_arrowsHauteur.at(0).setTexture(this->_data->assets.GetTexture("Up arrow"));
 		this->_arrowsHauteur.at(1).setTexture(this->_data->assets.GetTexture("Down arrow"));
@@ -79,6 +80,10 @@ namespace Puissance4Modulable {
 		// Bas à droite
 		this->_githubButton.setPosition(this->_data->window.getSize().x - _githubButton.getGlobalBounds().width,
 			this->_data->window.getSize().y - _githubButton.getGlobalBounds().height);
+
+		// En haut à droite
+		this->_settings.setPosition(this->_data->window.getSize().x - _settings.getGlobalBounds().width,
+			_settings.getPosition().y);
 
 		// Position Largeur
 		this->_textLargeur.setPosition(SCREEN_WIDHT / 2 - _textLargeur.getGlobalBounds().width / 2 - _valueLargeur.getGlobalBounds().width / 2,
@@ -194,6 +199,7 @@ namespace Puissance4Modulable {
 		this->_data->window.draw(this->_background);
 		this->_data->window.draw(this->_playButton);
 		this->_data->window.draw(this->_githubButton);
+		this->_data->window.draw(this->_settings);
 
 		// Dessine Largeur
 		this->_data->window.draw(this->_textLargeur);

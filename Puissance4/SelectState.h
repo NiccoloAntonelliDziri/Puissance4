@@ -42,6 +42,7 @@ namespace Puissance4Modulable
 		sf::Sprite _background;
 		sf::Sprite _playButton;
 		sf::Sprite _githubButton;
+		sf::Sprite _settings;
 
 		std::array<sf::Sprite, 2> _arrowsLargeur; // .at(0) correspond à la flèche vers le haut et .at(1) vers le bas
 		std::array<sf::Sprite, 2> _arrowsHauteur; // .at(0) correspond à la flèche vers le haut et .at(1) vers le bas
