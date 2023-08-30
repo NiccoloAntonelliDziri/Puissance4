@@ -25,6 +25,8 @@ namespace Puissance4Modulable
 		sf::Sprite _resumeButton;
 		sf::Sprite _homeButton;
 		sf::Sprite _settings;
+
+		sf::Text _pauseStateTitle;
 	};
 
 }

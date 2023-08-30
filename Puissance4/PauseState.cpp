@@ -24,6 +24,13 @@ namespace Puissance4Modulable {
 		this->_homeButton.setTexture(_data->assets.GetTexture("Home Button"));
 		this->_settings.setTexture(this->_data->assets.GetTexture("Settings Button"));
 
+		this->_pauseStateTitle.setFont(this->_data->assets.GetFont("ChakraPetch Bold"));
+
+		this->_pauseStateTitle.setString("Pause");
+		this->_pauseStateTitle.setFillColor(sf::Color(0, 0, 0, 255));
+		this->_pauseStateTitle.setPosition(0, 0);
+		this->_pauseStateTitle.setCharacterSize(36);
+
 		// Diviser par 3 car il ya plusieurs bouttons a afficher 
 		this->_resumeButton.setPosition(this->_data->window.getSize().x / 2 - this->_resumeButton.getLocalBounds().width / 2,
 			this->_data->window.getSize().y / 4 - this->_resumeButton.getLocalBounds().height / 2);
@@ -77,6 +84,7 @@ namespace Puissance4Modulable {
 		this->_data->window.draw(this->_resumeButton);
 		this->_data->window.draw(this->_homeButton);
 		this->_data->window.draw(this->_settings);
+		this->_data->window.draw(this->_pauseStateTitle);
 
 		this->_data->window.display();
 	}
