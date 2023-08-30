@@ -20,8 +20,6 @@ namespace Puissance4Modulable {
 		this->_data->assets.LoadTexture("Up arrow", ARROW_UP);
 		this->_data->assets.LoadTexture("Down arrow", ARROW_DOWN);
 
-		this->_data->assets.LoadFont("ChakrPetch Regular", FONT_CHAKRAPETCH_REGULAR_PATH);
-
 		// On recharge pas la texture
 		// Si besoin il faut load GAME_BACKGROUND_FILEPATH
 		_background.setTexture(this->_data->assets.GetTexture("Main Menu Background"));
@@ -44,26 +42,26 @@ namespace Puissance4Modulable {
 		this->_arrowsPuissance.at(0).setScale(0.5, 0.5);
 		this->_arrowsPuissance.at(1).setScale(0.5, 0.5);
 
-		this->_textHauteur.setFont(this->_data->assets.GetFont("ChakrPetch Regular"));
-		this->_textHauteur.setStyle(sf::Text::Bold);
+		this->_textHauteur.setFont(this->_data->assets.GetFont("ChakraPetch Regular"));
 		this->_textHauteur.setString(TEXT_SELECT_HAUTEUR);
 		this->_textHauteur.setFillColor(sf::Color::Black);
-		this->_textLargeur.setFont(this->_data->assets.GetFont("ChakrPetch Regular"));
-		this->_textLargeur.setStyle(sf::Text::Bold);
+		this->_textHauteur.setCharacterSize(36);
+		this->_textLargeur.setFont(this->_data->assets.GetFont("ChakraPetch Regular"));
 		this->_textLargeur.setString(TEXT_SELECT_LARGEUR);
 		this->_textLargeur.setFillColor(sf::Color::Black);
-		this->_textPuissance.setFont(this->_data->assets.GetFont("ChakrPetch Regular"));
-		this->_textPuissance.setStyle(sf::Text::Bold);
+		this->_textLargeur.setCharacterSize(36);
+		this->_textPuissance.setFont(this->_data->assets.GetFont("ChakraPetch Regular"));
 		this->_textPuissance.setString(TEXT_SELECT_PUISSANCE);
 		this->_textPuissance.setFillColor(sf::Color::Black);
+		this->_textPuissance.setCharacterSize(36);
 
-		this->_valueHauteur.setFont(this->_data->assets.GetFont("ChakrPetch Regular"));
+		this->_valueHauteur.setFont(this->_data->assets.GetFont("ChakraPetch Regular"));
 		this->_valueHauteur.setString(std::to_string(HAUTEUR_PAR_DEFAUT));
 		this->_valueHauteur.setFillColor(sf::Color::Black);
-		this->_valueLargeur.setFont(this->_data->assets.GetFont("ChakrPetch Regular"));
+		this->_valueLargeur.setFont(this->_data->assets.GetFont("ChakraPetch Regular"));
 		this->_valueLargeur.setString(std::to_string(LARGEUR_PAR_DEFAUT));
 		this->_valueLargeur.setFillColor(sf::Color::Black);
-		this->_valuePuissance.setFont(this->_data->assets.GetFont("ChakrPetch Regular"));
+		this->_valuePuissance.setFont(this->_data->assets.GetFont("ChakraPetch Regular"));
 		this->_valuePuissance.setString(std::to_string(PUISSANCE_PAR_DEFAUT));
 		this->_valuePuissance.setFillColor(sf::Color::Black);
 

@@ -16,7 +16,6 @@ namespace Puissance4Modulable {
 
 	void PauseState::Init()
 	{
-		this->_data->assets.LoadTexture("Pause Background", PAUSE_BACKGROUND_FILEPATH);
 		this->_data->assets.LoadTexture("Resume Button", RESUME_BUTTON);
 		this->_data->assets.LoadTexture("Home Button", HOME_BUTTON);
 

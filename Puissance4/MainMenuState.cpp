@@ -18,12 +18,14 @@ namespace Puissance4Modulable {
 	void MainMenuState::Init()
 	{
 		this->_data->assets.LoadTexture("Main Menu Background", MAIN_MENU_BACKGROUD_FILEPATH);
+		this->_data->assets.LoadTexture("Pause Background", PAUSE_BACKGROUND_FILEPATH);
 		this->_data->assets.LoadTexture("Play Button", MAIN_MENU_PLAY_BUTTON);
 		this->_data->assets.LoadTexture("Game Title", MAIN_MENU_TITLE_PATH);
 		this->_data->assets.LoadTexture("Github Button", GITHUB_BUTTON);
 		this->_data->assets.LoadTexture("Settings Button", SETTINGS_BUTTON);
 
-		this->_data->assets.LoadFont("ChakrPetch Bold", FONT_CHAKRAPETCH_BOLD_PATH);
+		this->_data->assets.LoadFont("ChakraPetch Bold", FONT_CHAKRAPETCH_BOLD_PATH);
+		this->_data->assets.LoadFont("ChakraPetch Regular", FONT_CHAKRAPETCH_REGULAR_PATH);
 
 		this->_data->assets.LoadSound("Button Pressed", SOUND_BUTTONS_FILE);
 

@@ -16,6 +16,8 @@ namespace Puissance4Modulable {
 
 	void SettingsState::Init()
 	{
+		this->_data->assets.LoadTexture("Resume Button", RESUME_BUTTON);
+		this->_data->assets.LoadTexture("Home Button", HOME_BUTTON);
 		this->_data->assets.LoadTexture("Sound Off Button", SOUND_OFF);
 		this->_data->assets.LoadTexture("Sound On Button", SOUND_ON);
 
