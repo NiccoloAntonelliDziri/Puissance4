@@ -50,6 +50,7 @@ namespace Puissance4Modulable {
 		if (!this->_data->music.IsPlaying())
 		{
 			this->_data->music.OpenMusic(GAME_MUSIC);
+			this->_data->music.EnableLoop(true);
 			this->_data->music.Play();
 		}
 	}

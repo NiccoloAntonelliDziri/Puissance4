@@ -36,6 +36,7 @@ namespace Puissance4Modulable {
 		void DeMute();
 
 		// Si enable == true met la musique en loop mode
+		// Si false le disactive
 		void EnableLoop(bool enable);
 
 	private:
