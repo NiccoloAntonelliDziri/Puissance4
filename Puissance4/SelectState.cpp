@@ -2,6 +2,7 @@
 #include "DEFINITIONS.h"
 
 #include "GameState.h"
+#include "SettingsState.h"
 
 #include <iostream>
 #include <Windows.h>
@@ -144,6 +145,11 @@ namespace Puissance4Modulable {
 			{
 				this->_data->assets.Play("Button Pressed");
 				ShellExecute(0, 0, L"https://github.com/NiccoloAntonelliDziri/Puissance4", 0, 0, SW_SHOW);
+			}
+			if (this->_data->input.IsSpriteClicked(this->_settings, sf::Mouse::Left, event, this->_data->window))
+			{
+				this->_data->assets.Play("Button Pressed");
+				this->_data->machine.AddState(StateRef(std::make_unique<SettingsState>(_data)), false);
 			}
 
 			if (this->_data->input.IsSpriteClicked(this->_arrowsHauteur.at(0), sf::Mouse::Left, event, this->_data->window))

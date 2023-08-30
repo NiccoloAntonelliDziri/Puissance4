@@ -23,6 +23,7 @@ namespace Puissance4Modulable
 
 		sf::Sprite _retryButton;
 		sf::Sprite _homeButton;
+		sf::Sprite _settings;
 	};
 }
 
