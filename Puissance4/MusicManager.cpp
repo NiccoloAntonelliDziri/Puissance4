@@ -46,4 +46,9 @@ namespace Puissance4Modulable {
 		_gameMusic.setVolume(_volume);
 	}
 
+	void MusicManager::EnableLoop(bool enable)
+	{
+		_gameMusic.setLoop(enable);
+	}
+
 }

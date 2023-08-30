@@ -2,16 +2,19 @@
 
 namespace Puissance4Modulable
 {
-	bool InputManager::IsSpriteClicked(sf::Sprite object, sf::Mouse::Button button, sf::RenderWindow& window) const
+	bool InputManager::IsSpriteClicked(sf::Sprite object, sf::Mouse::Button button, sf::Event& event, sf::RenderWindow& window)
 	{
-		if (sf::Mouse::isButtonPressed(button))
+		if (event.type == sf::Event::MouseButtonReleased)
 		{
-			sf::IntRect tempRect(object.getPosition().x, object.getPosition().y,
-				object.getGlobalBounds().width, object.getGlobalBounds().height);
-
-			if (tempRect.contains(sf::Mouse::getPosition(window)))
+			if (event.mouseButton.button == button)
 			{
-				return true;
+				sf::IntRect tempRect(object.getPosition().x, object.getPosition().y,
+					object.getGlobalBounds().width, object.getGlobalBounds().height);
+
+				if (tempRect.contains(sf::Mouse::getPosition(window)))
+				{
+					return true;
+				}
 			}
 		}
 		return false;
@@ -22,13 +25,16 @@ namespace Puissance4Modulable
 		return sf::Mouse::getPosition(window);
 	}
 
-	bool InputManager::IsMouseClickedInArea(sf::IntRect area, sf::Mouse::Button button, sf::RenderWindow& window) const
+	bool InputManager::IsMouseClickedInArea(sf::IntRect area, sf::Mouse::Button button, sf::Event& event, sf::RenderWindow& window)
 	{
-		if (sf::Mouse::isButtonPressed(button))
+		if (event.type == sf::Event::MouseButtonReleased)
 		{
-			if (area.contains(sf::Mouse::getPosition(window)))
+			if (event.mouseButton.button == button)
 			{
-				return true;
+				if (area.contains(sf::Mouse::getPosition(window)))
+				{
+					return true;
+				}
 			}
 		}
 		return false;

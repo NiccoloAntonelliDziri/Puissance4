@@ -38,7 +38,7 @@ namespace Puissance4Modulable
 			{
 				this->_data->window.close();
 			}
-			if (this->_data->input.IsSpriteClicked(this->_retryButton, sf::Mouse::Left, this->_data->window))
+			if (this->_data->input.IsSpriteClicked(this->_retryButton, sf::Mouse::Left, event, this->_data->window))
 			{
 
 				this->_data->assets.Play("Button Pressed");
@@ -51,7 +51,7 @@ namespace Puissance4Modulable
 
 				this->_data->machine.AddState(StateRef(std::make_unique<GameState>(_data)), true);
 			}
-			if (this->_data->input.IsSpriteClicked(this->_homeButton, sf::Mouse::Left, this->_data->window))
+			if (this->_data->input.IsSpriteClicked(this->_homeButton, sf::Mouse::Left, event, this->_data->window))
 			{
 				this->_data->assets.Play("Button Pressed");
 				this->_data->machine.AddState(StateRef(std::make_unique<MainMenuState>(_data)), true);

@@ -65,8 +65,9 @@ namespace Puissance4Modulable {
 			if (event.type == sf::Event::Closed)
 			{
 				this->_data->window.close();
-			}
-			if (this->_data->input.IsSpriteClicked(this->_pauseButton, sf::Mouse::Left, this->_data->window))
+			};
+
+			if (this->_data->input.IsSpriteClicked(this->_pauseButton, sf::Mouse::Left, event, this->_data->window))
 			{
 				// Go to Pause State
 				this->_data->assets.Play("Button Pressed");
@@ -76,7 +77,7 @@ namespace Puissance4Modulable {
 			{
 				if (turn == PLAYER_PIECE)
 				{
-					if (this->_data->input.IsMouseClickedInArea(_gridArea, sf::Mouse::Left, this->_data->window))
+					if (this->_data->input.IsMouseClickedInArea(_gridArea, sf::Mouse::Left, event, this->_data->window))
 					{
 						this->_data->assets.Play("Button Pressed");
 						this->CheckAndPlacePiece();

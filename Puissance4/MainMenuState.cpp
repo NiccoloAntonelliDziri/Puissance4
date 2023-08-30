@@ -23,6 +23,8 @@ namespace Puissance4Modulable {
 
 		this->_data->assets.LoadFont("ChakrPetch Bold", FONT_CHAKRAPETCH_BOLD_PATH);
 
+		this->_data->assets.LoadSound("Button Pressed", SOUND_BUTTONS_FILE);
+
 		this->_background.setTexture(this->_data->assets.GetTexture("Main Menu Background"));
 		this->_playButton.setTexture(this->_data->assets.GetTexture("Play Button"));
 		this->_title.setTexture(this->_data->assets.GetTexture("Game Title"));
@@ -40,12 +42,11 @@ namespace Puissance4Modulable {
 		this->_githubButton.setPosition(this->_data->window.getSize().x - _githubButton.getGlobalBounds().width,
 			this->_data->window.getSize().y - _githubButton.getGlobalBounds().height);
 
-
-
 		// Positionne au centre mais en haut
 		this->_title.setPosition(SCREEN_WIDHT / 2 - this->_title.getGlobalBounds().width / 2,
 			this->_title.getGlobalBounds().height * 0.1);
 
+		// Début musique du jeu
 		if (!this->_data->music.IsPlaying())
 		{
 			this->_data->music.OpenMusic(GAME_MUSIC);
@@ -62,12 +63,14 @@ namespace Puissance4Modulable {
 			{
 				this->_data->window.close();
 			}
-			if (this->_data->input.IsSpriteClicked(this->_playButton, sf::Mouse::Left, this->_data->window))
+			if (this->_data->input.IsSpriteClicked(this->_playButton, sf::Mouse::Left, event, this->_data->window))
 			{
+				this->_data->assets.Play("Button Pressed");
 				this->_data->machine.AddState(StateRef(std::make_unique<SelectState>(_data)), true);
 			}
-			if (this->_data->input.IsSpriteClicked(this->_githubButton, sf::Mouse::Left, this->_data->window))
+			if (this->_data->input.IsSpriteClicked(this->_githubButton, sf::Mouse::Left,event, this->_data->window))
 			{
+				this->_data->assets.Play("Button Pressed");
 				ShellExecute(0, 0, L"https://github.com/NiccoloAntonelliDziri/Puissance4", 0, 0, SW_SHOW);
 			}
 		}

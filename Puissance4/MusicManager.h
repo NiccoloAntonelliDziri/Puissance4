@@ -29,9 +29,14 @@ namespace Puissance4Modulable {
 		// (100 par défaut quand la musique play on peut que le baisser)
 		void SetVolume(int volume);
 
+		// Met le volume du son à zéro
 		void Mute();
 
+		// Met le volume du son à sa valeur définie
 		void DeMute();
+
+		// Si enable == true met la musique en loop mode
+		void EnableLoop(bool enable);
 
 	private:
 		sf::Music _gameMusic;
