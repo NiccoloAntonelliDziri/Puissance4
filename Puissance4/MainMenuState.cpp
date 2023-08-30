@@ -20,7 +20,6 @@ namespace Puissance4Modulable {
 		this->_data->assets.LoadTexture("Main Menu Background", MAIN_MENU_BACKGROUD_FILEPATH);
 		this->_data->assets.LoadTexture("Pause Background", PAUSE_BACKGROUND_FILEPATH);
 		this->_data->assets.LoadTexture("Play Button", MAIN_MENU_PLAY_BUTTON);
-		this->_data->assets.LoadTexture("Game Title", MAIN_MENU_TITLE_PATH);
 		this->_data->assets.LoadTexture("Github Button", GITHUB_BUTTON);
 		this->_data->assets.LoadTexture("Settings Button", SETTINGS_BUTTON);
 
@@ -31,9 +30,13 @@ namespace Puissance4Modulable {
 
 		this->_background.setTexture(this->_data->assets.GetTexture("Main Menu Background"));
 		this->_playButton.setTexture(this->_data->assets.GetTexture("Play Button"));
-		this->_title.setTexture(this->_data->assets.GetTexture("Game Title"));
 		this->_githubButton.setTexture(this->_data->assets.GetTexture("Github Button"));
 		this->_settings.setTexture(this->_data->assets.GetTexture("Settings Button"));
+
+		this->_title.setFont(this->_data->assets.GetFont("ChakraPetch Bold"));
+		this->_title.setString(TEXT_MAIN_MENU_TITLE);
+		this->_title.setFillColor(sf::Color(50, 50, 50, 255));
+		this->_title.setCharacterSize(72);
 
 		// Centrage background
 		this->_background.setPosition(SCREEN_WIDHT / 2 - this->_background.getGlobalBounds().width / 2,
@@ -47,10 +50,9 @@ namespace Puissance4Modulable {
 		this->_githubButton.setPosition(this->_data->window.getSize().x - _githubButton.getGlobalBounds().width,
 			this->_data->window.getSize().y - _githubButton.getGlobalBounds().height);
 
-		// Positionne au centre mais en haut
+		// Positionne au centre mais presque en haut
 		this->_title.setPosition(SCREEN_WIDHT / 2 - this->_title.getGlobalBounds().width / 2,
-			this->_title.getGlobalBounds().height * 0.1);
-
+			this->_title.getGlobalBounds().height);
 		// En haut à droite
 		this->_settings.setPosition(this->_data->window.getSize().x - _settings.getGlobalBounds().width,
 			_settings.getPosition().y);

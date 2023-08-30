@@ -27,6 +27,6 @@ namespace Puissance4Modulable
 		sf::Sprite _githubButton;
 		sf::Sprite _settings;
 
-		sf::Sprite _title;
+		sf::Text _title;
 	};
 }
