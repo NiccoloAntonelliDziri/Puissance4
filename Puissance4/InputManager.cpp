@@ -4,7 +4,7 @@ namespace Puissance4Modulable
 {
 	bool InputManager::IsSpriteClicked(sf::Sprite object, sf::Mouse::Button button, sf::Event& event, sf::RenderWindow& window)
 	{
-		if (event.type == sf::Event::MouseButtonReleased)
+		if (event.type == sf::Event::MouseButtonPressed)
 		{
 			if (event.mouseButton.button == button)
 			{
@@ -27,7 +27,7 @@ namespace Puissance4Modulable
 
 	bool InputManager::IsMouseClickedInArea(sf::IntRect area, sf::Mouse::Button button, sf::Event& event, sf::RenderWindow& window)
 	{
-		if (event.type == sf::Event::MouseButtonReleased)
+		if (event.type == sf::Event::MouseButtonPressed)
 		{
 			if (event.mouseButton.button == button)
 			{

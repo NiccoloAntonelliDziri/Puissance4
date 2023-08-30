@@ -71,18 +71,16 @@ namespace Puissance4Modulable {
 				this->_data->assets.Play("Button Pressed");
 				this->_data->machine.AddState(StateRef(std::make_unique<PauseState>(_data)), false);
 			}
-			if (gameState == STATE_PLAYING)
+			
+			if (turn == AI_PIECE and gameState == STATE_PLAYING)
 			{
-				if (turn == PLAYER_PIECE)
+				this->CheckAndPlacePiece();
+			}
+			else if (turn == PLAYER_PIECE and gameState == STATE_PLAYING)
+			{
+				if (this->_data->input.IsMouseClickedInArea(_gridArea, sf::Mouse::Left, event, this->_data->window))
 				{
-					if (this->_data->input.IsMouseClickedInArea(_gridArea, sf::Mouse::Left, event, this->_data->window))
-					{
-						this->_data->assets.Play("Button Pressed");
-						this->CheckAndPlacePiece();
-					}
-				}
-				else if (turn == AI_PIECE)
-				{
+					this->_data->assets.Play("Button Pressed");
 					this->CheckAndPlacePiece();
 				}
 			}
@@ -95,7 +93,7 @@ namespace Puissance4Modulable {
 		{
 			if (gameState == STATE_DRAW) {
 				_gameOverText.setString(L"EGALITE");
-				_gameOverText.setFillColor(sf::Color(0, 0, 0, 220));
+				_gameOverText.setFillColor(sf::Color(100, 100, 100, 220));
 				_gameOverText.setPosition(SCREEN_WIDHT / 2 - this->_gameOverText.getGlobalBounds().width / 2,
 					SCREEN_HEIGHT / 2 - this->_gameOverText.getGlobalBounds().height / 2);
 			}
