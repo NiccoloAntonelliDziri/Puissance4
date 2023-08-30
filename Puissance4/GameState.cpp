@@ -34,9 +34,7 @@ namespace Puissance4Modulable {
 		// Idem
 		_pauseButton.setTexture(this->_data->assets.GetTexture("Pause Button"));
 
-		_gameOverText.setFont(this->_data->assets.GetFont("ChakrPetch Bold"));
-		//_gameOverText.setStyle(sf::Text::Bold);
-		_gameOverText.setFillColor(sf::Color(255, 0, 0, 220));
+		_gameOverText.setFont(this->_data->assets.GetFont("ChakraPetch Bold"));		
 		_gameOverText.setOutlineThickness(3);
 		_gameOverText.setOutlineColor(sf::Color(0, 0, 0, 220));
 		_gameOverText.setLetterSpacing(1.5);
@@ -97,16 +95,19 @@ namespace Puissance4Modulable {
 		{
 			if (gameState == STATE_DRAW) {
 				_gameOverText.setString(L"EGALITE");
+				_gameOverText.setFillColor(sf::Color(0, 0, 0, 220));
 				_gameOverText.setPosition(SCREEN_WIDHT / 2 - this->_gameOverText.getGlobalBounds().width / 2,
 					SCREEN_HEIGHT / 2 - this->_gameOverText.getGlobalBounds().height / 2);
 			}
 			if (gameState == STATE_LOSE) {
 				_gameOverText.setString(L"PERDU");
+				_gameOverText.setFillColor(sf::Color(255, 0, 0, 220));
 				_gameOverText.setPosition(SCREEN_WIDHT / 2 - this->_gameOverText.getGlobalBounds().width / 2,
 					SCREEN_HEIGHT / 2 - this->_gameOverText.getGlobalBounds().height / 2);
 			}
 			if (gameState == STATE_WON) {
 				_gameOverText.setString(L"GAGNE");
+				_gameOverText.setFillColor(sf::Color(0, 255, 0, 220));
 				_gameOverText.setPosition(SCREEN_WIDHT / 2 - this->_gameOverText.getGlobalBounds().width / 2,
 					SCREEN_HEIGHT / 2 - this->_gameOverText.getGlobalBounds().height / 2);
 			}
