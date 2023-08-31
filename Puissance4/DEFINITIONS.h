@@ -59,8 +59,20 @@
 // https://freesound.org/people/EminYILDIRIM/sounds/540568/
 #define SOUND_BUTTONS_FILE "Ressources/sound/540568__eminyildirim__ui-pop-up.wav"
 
+
+//// Musiques //////////////////////////////////////////////////
 // https://freesound.org/people/YellowTree/sounds/693384/
 #define GAME_MUSIC "Ressources/sound/693384__yellowtree__weather-forecast-type-beat.wav"
+
+// https://freesound.org/people/PodcastAC/sounds/663783/
+#define GAME_MUSIC_2 "Ressources/sound/663783__podcastac__groovy-6.wav"
+
+// https://freesound.org/people/Doctor_Dreamchip/sounds/511278/
+#define GAME_MUSIC_3 "Ressources/sound/511278__doctor_dreamchip__2020-03-18-synthwave-doctor-dreamchip.wav"
+
+// https://www.fiftysounds.com/royalty-free-music/acid-place.html
+#define GAME_MUSIC_4 "Ressources/sound/Acid-Place.wav"
+////////////////////////////////////////////////////////////////////////////:
 
 #define TAILLE_BOUTONS_STANDARD 64
 
