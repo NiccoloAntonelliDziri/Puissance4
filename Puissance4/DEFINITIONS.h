@@ -43,6 +43,7 @@
 // <a href="https://www.freepik.com/icon/play_104635#fromView=search&term=play+button&page=4&position=15">Icon by Freepik</a>
 #define SELECT_MENU_PLAY_BUTTON "Ressources/res/play selectmenu.png"
 
+#define TEXT_MAIN_MENU_TITLE L"Puissance 4 Modulable"
 #define TEXT_SELECT_LARGEUR L"Largeur = "
 #define TEXT_SELECT_HAUTEUR L"Hauteur = "
 #define TEXT_SELECT_PUISSANCE L"Puissance = "
