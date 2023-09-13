@@ -33,3 +33,22 @@ bool Puissance4Modulable::Plateau::isWinningMove(int col) const
 	}
 	return false;
 }
+
+void Puissance4Modulable::Plateau::reInit(int largeur, int hauteur, int puissance)
+{
+	LARGEUR = largeur;
+	HAUTEUR = hauteur;
+	PUISSANCE = puissance;
+
+	nbMoves = 0;
+
+	delete[] plateau;
+	delete[] colonnes;
+
+	colonnes = new int[LARGEUR];
+	plateau = new Cell[LARGEUR * HAUTEUR];
+
+	// Initialisation à 0 du plateau
+	for (int i = 0; i < largeur * hauteur; i++) plateau[i] = Cell::VIDE;
+	for (int i = 0; i < largeur; i++) colonnes[i] = 0;
+}

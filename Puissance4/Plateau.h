@@ -1,6 +1,7 @@
 #pragma once
 
 #include <algorithm>
+#include "DEFINITIONS.h"
 
 // Représente le contenu d'une cellule du plateau
 enum class Cell { ROUGE, JAUNE, VIDE };
@@ -31,7 +32,7 @@ namespace Puissance4Modulable {
 		int* colonnes; // Tableau avec le nombre de jetons dans chaque colonne du plateau
 		Cell* plateau; // Grille de jeu
 	public:
-		Plateau(int largeur = 7, int hauteur = 6, int puissance = 4) :
+		Plateau(int largeur = LARGEUR_PAR_DEFAUT, int hauteur = HAUTEUR_PAR_DEFAUT, int puissance = PUISSANCE_PAR_DEFAUT) :
 			LARGEUR(largeur), HAUTEUR(hauteur), PUISSANCE(puissance)
 			{
 			colonnes = new int[LARGEUR];
@@ -78,17 +79,9 @@ namespace Puissance4Modulable {
 
 		// move constructor
 		Plateau(Plateau&& other) noexcept :
-			LARGEUR(7), HAUTEUR(6), PUISSANCE(4),
-			nbMoves(0),
-			colonnes(nullptr), plateau(nullptr){
-
-			colonnes = other.colonnes;
-			plateau = other.plateau;
-
-			LARGEUR = other.LARGEUR;
-			HAUTEUR = other.HAUTEUR;
-			PUISSANCE = other.PUISSANCE;
-			nbMoves = other.nbMoves;
+			LARGEUR(other.LARGEUR), HAUTEUR(other.HAUTEUR), PUISSANCE(other.PUISSANCE),
+			nbMoves(other.nbMoves),
+			colonnes(other.colonnes), plateau(other.plateau){
 
 			other.colonnes = nullptr;
 			other.plateau = nullptr;
@@ -96,7 +89,7 @@ namespace Puissance4Modulable {
 		}
 
 		// Move assignement operator
-		Plateau const& operator=(Plateau&& other) noexcept{
+		Plateau& operator=(Plateau&& other) noexcept{
 			if (this != &other)
 			{
 				delete[] colonnes;
@@ -129,6 +122,9 @@ namespace Puissance4Modulable {
 		// Retourne true si detecte un alignement suivant une des 4 directions
 		// NE PAS appeler si col n'est pas une colonne valide
 		bool isWinningMove(int col) const;
+
+		// Reinitialise tout le plateau à vide
+		void reInit(int largeur = LARGEUR_PAR_DEFAUT, int hauteur = HAUTEUR_PAR_DEFAUT, int puissance = PUISSANCE_PAR_DEFAUT);
 
 		// Retourne true si une colonne est jouable et false sinon
 		inline bool isColValide(int col) const { return colonnes[col] < HAUTEUR and col >= 0 and col < LARGEUR; }
