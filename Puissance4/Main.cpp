@@ -1,11 +1,10 @@
-#include "Puissance4.h"
+#include <iostream>
+#include "Game.h"
+#include "DEFINITIONS.h"
 
 int WinMain()
 {
-	using namespace Puissance4Modulable;
-	Plateau jeu(7,6,4);
-	Player joueur;
-	Uniform bot;
-	faireJouer2BotsEntreEux(jeu, joueur, bot);
-	return 0;
+    Puissance4Modulable::Game game(SCREEN_WIDHT, SCREEN_HEIGHT, "Puissance 4 Modulable");
+
+    return EXIT_SUCCESS;
 }

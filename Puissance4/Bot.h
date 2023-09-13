@@ -4,7 +4,6 @@
 #include <vector>
 #include <random>
 #include "Plateau.h"
-#include "Affichage.h"
 
 namespace Puissance4Modulable {
 
