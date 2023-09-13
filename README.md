@@ -11,6 +11,8 @@ Le but du jeu est d'aligner "puissance" jetons en ligne, colonne, ou diagonale p
 - Copier le dossier "Ressources" entier dans votre dossier "nom_dossier".
 - Il est important que "Ressources" soit dans le même emplacement que le fichier .exe ainsi que tous les .dll
 
+Il faudra très probablement créer une exception pour le fichier .exe sur votre antivirus, ou sinon compliler vous même le code source.
+
 ## Jouer
 
 Tout se joue grâce à une souris.
