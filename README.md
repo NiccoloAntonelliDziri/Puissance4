@@ -4,21 +4,14 @@ Puissance 4 modulable.
 Les dimensions du plateau (largeur et hauteur) ainsi que le nombre de jetons qu'il faut aligner pour gagner (puissance) sont réglables pour chaque partie.
 Le but du jeu est d'aligner "puissance" jetons en ligne, colonne, ou diagonale pour gagner.
 
-## Jouer une partie
+## Setup
 
-Déclarer un plateau de jeu (ici largeur: 7, hauteur: 6, puissance: 4).
-Déclarer un plusieurs bots (qui incluent les joueurs humains).
+- Créez un dossier "nom_dossier" dédié à ce puissance 4 modulable.
+- Télécharger la release v0.1.0 et l'extraire dans ce dossier.
+- Copier le dossier "Ressources" entier dans votre dossier "nom_dossier".
+- Il est important que "Ressources" soit dans le même emplacement que le fichier .exe et les .dll
 
-```c++
-int main()
-{
-	using namespace Puissance4Modulable;
-	Plateau jeu(7,6,4);
-	Player joueur;
-	Uniform bot;
-	faireJouer2BotsEntreEux(jeu, joueur, bot);
-	return 0;
-}
-```
+## Jouer
 
-Pour 2 joueurs humain il suffit de déclarer un seul `Player joueur;` et le passer dans les deux paramètres de la fonction `faireJouer2BotsEntreEux(jeu, joueur, joueur);`
+Tout se joue grâce à une souris.
+Le joueur peut jouer uniquement face à un bot qui joue aléatoirement.
