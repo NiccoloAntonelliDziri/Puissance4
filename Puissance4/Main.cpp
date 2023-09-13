@@ -1,6 +1,6 @@
 #include "Puissance4.h"
 
-int main()
+int WinMain()
 {
 	using namespace Puissance4Modulable;
 	Plateau jeu(7,6,4);
