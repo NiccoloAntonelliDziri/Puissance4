@@ -2,7 +2,7 @@
 #include "Game.h"
 #include "DEFINITIONS.h"
 
-int main()
+int WinMain()
 {
     Puissance4Modulable::Game game(SCREEN_WIDHT, SCREEN_HEIGHT, "Puissance 4 Modulable");
 

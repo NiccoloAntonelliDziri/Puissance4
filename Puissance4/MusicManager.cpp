@@ -1,6 +1,7 @@
 #include "MusicManager.h"
 
 namespace Puissance4Modulable {
+
 	MusicManager::MusicManager() 
 	{
 		_volume = 100;

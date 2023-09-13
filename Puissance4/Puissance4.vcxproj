@@ -100,7 +100,7 @@
       <AdditionalIncludeDirectories>C:\Users\Niccolo\Desktop\ProjetsC++\Librairies\SFML-2.6.0\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -134,7 +134,7 @@
       <AdditionalIncludeDirectories>C:\Users\Niccolo\Desktop\ProjetsC++\Librairies\SFML-2.6.0\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>

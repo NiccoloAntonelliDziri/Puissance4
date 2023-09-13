@@ -43,6 +43,7 @@ namespace Puissance4Modulable
 
 		sf::Sprite _background;
 		sf::Sprite _pauseButton;
+		sf::Sprite _githubButton;
 		
 		std::unique_ptr<sf::Sprite[]> _grid;
 		std::unique_ptr<sf::Sprite[]> _cells;

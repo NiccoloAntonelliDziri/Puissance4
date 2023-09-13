@@ -8,6 +8,9 @@
 
 #include <iostream>
 
+#include <Windows.h>
+#include <shellapi.h>
+
 namespace Puissance4Modulable {
 
 	GameState::GameState(GameDataRef data) : _data(data)
@@ -34,12 +37,17 @@ namespace Puissance4Modulable {
 		// Idem
 		_pauseButton.setTexture(this->_data->assets.GetTexture("Pause Button"));
 
+		this->_githubButton.setTexture(this->_data->assets.GetTexture("Github Button"));
+
 		_gameOverText.setFont(this->_data->assets.GetFont("ChakraPetch Bold"));		
 		_gameOverText.setOutlineThickness(3);
 		_gameOverText.setOutlineColor(sf::Color(0, 0, 0, 220));
 		_gameOverText.setLetterSpacing(1.5);
 		_gameOverText.setCharacterSize(120);
 
+		// Bas à droite
+		this->_githubButton.setPosition(this->_data->window.getSize().x - _githubButton.getGlobalBounds().width,
+			this->_data->window.getSize().y - _githubButton.getGlobalBounds().height);
 
 			// Centrage background CHANGE CA si on change de background
 		this->_background.setPosition(SCREEN_WIDHT / 2 - this->_background.getGlobalBounds().width / 2,
@@ -70,6 +78,11 @@ namespace Puissance4Modulable {
 				// Go to Pause State
 				this->_data->assets.Play("Button Pressed");
 				this->_data->machine.AddState(StateRef(std::make_unique<PauseState>(_data)), false);
+			}
+			if (this->_data->input.IsSpriteClicked(this->_githubButton, sf::Mouse::Left, event, this->_data->window))
+			{
+				this->_data->assets.Play("Button Pressed");
+				ShellExecute(0, 0, L"https://github.com/NiccoloAntonelliDziri/Puissance4", 0, 0, SW_SHOW);
 			}
 			
 			if (turn == AI_PIECE and gameState == STATE_PLAYING)
@@ -122,6 +135,7 @@ namespace Puissance4Modulable {
 
 		this->_data->window.draw(this->_background);
 		this->_data->window.draw(this->_pauseButton);
+		this->_data->window.draw(this->_githubButton);
 
 		DrawGrid();
 
