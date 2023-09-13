@@ -1,6 +1,5 @@
-# Puissance4
+# Puissance 4 Modulable
 
-Puissance 4 modulable.
 Les dimensions du plateau (largeur et hauteur) ainsi que le nombre de jetons qu'il faut aligner pour gagner (puissance) sont réglables pour chaque partie.
 Le but du jeu est d'aligner "puissance" jetons en ligne, colonne, ou diagonale pour gagner.
 
