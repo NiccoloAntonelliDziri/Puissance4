@@ -15,4 +15,4 @@ Il faudra très probablement créer une exception pour le fichier .exe sur votre
 ## Jouer
 
 Tout se joue grâce à une souris.
-Le joueur peut affronter uniquement face à un bot qui joue aléatoirement.
+Le joueur peut affronter uniquement un bot qui joue aléatoirement.
