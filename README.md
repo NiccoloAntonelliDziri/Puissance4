@@ -5,6 +5,8 @@ Le but du jeu est d'aligner "puissance" jetons en ligne, colonne, ou diagonale p
 
 ## Setup
 
+L'application est crée pour les systèmes windows x64
+
 - Télécharger et décompresser le dossier Release.zip (v0.2.1)
 - Double-cliquer sur le fichier Puissance4.exe pour lancer l'application
 
