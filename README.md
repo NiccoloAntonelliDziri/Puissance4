@@ -5,12 +5,10 @@ Le but du jeu est d'aligner "puissance" jetons en ligne, colonne, ou diagonale p
 
 ## Setup
 
-- Créez un dossier "nom_dossier" dédié à ce puissance 4 modulable.
-- Copier tous les assets de la release v0.1.1 dans ce dossier (les 5 fichiers .dll et le fichier .exe)
-- Copier le dossier "Ressources" entier dans votre dossier "nom_dossier".
-- Il est important que "Ressources" soit dans le même emplacement que le fichier .exe ainsi que tous les .dll
+-Télécharger et décompresser le dossier Release.zip
+-Double-cliquer sur le fichier Puissance4.exe pour lancer l'application
 
-Il faudra très probablement créer une exception pour le fichier .exe sur votre antivirus, ou sinon compliler vous même le code source.
+Il faudra très probablement créer une exception pour le fichier .exe sur votre antivirus, ou sinon compliler vous même le code source, en n'oubliant d'utiliser les bibliothèques SFML.
 
 ## Jouer
 
