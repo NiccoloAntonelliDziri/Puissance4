@@ -5,8 +5,8 @@ Le but du jeu est d'aligner "puissance" jetons en ligne, colonne, ou diagonale p
 
 ## Setup
 
--Télécharger et décompresser le dossier Release.zip
--Double-cliquer sur le fichier Puissance4.exe pour lancer l'application
+- Télécharger et décompresser le dossier Release.zip
+- Double-cliquer sur le fichier Puissance4.exe pour lancer l'application
 
 Il faudra très probablement créer une exception pour le fichier .exe sur votre antivirus, ou sinon compliler vous même le code source, en n'oubliant d'utiliser les bibliothèques SFML.
 
